@@ -8,7 +8,10 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {FEATURES: {}},
     APP: {},
-    firebase: 'https://glaring-heat-3049.firebaseio.com/'
+    firebase: 'https://glaring-heat-3049.firebaseio.com/',
+    torii: {
+      sessionServiceName: 'session'
+    }
   };
 
   if (environment === 'development') {
