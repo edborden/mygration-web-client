@@ -11,6 +11,11 @@ module.exports = function(environment) {
     firebase: 'https://glaring-heat-3049.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
+    },
+    contentSecurityPolicy: {
+      'connect-src': "'self' wss://*.firebaseio.com",
+      'frame-src': "'self' https://*.firebaseio.com",
+      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
     }
   };
 
