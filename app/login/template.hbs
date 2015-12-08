@@ -1,15 +1,11 @@
-<div class="self-center login-box">
-  <form>
-    <div class="form-group">
-      {{input class="form-control" type="text" placeholder="Email" value=email}}
-    </div>
-    <div class="form-group">
-      {{input class="form-control" type="password" placeholder="Password" value=password}}
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary" {{action "loginClick"}}>
-        Login
-      </button>
-    </div>
-  </form>      
+<div class="self-center login-box text-center">
+  <p>
+    <img src='assets/images/brand-white.png' class="brand-logo">
+  </p>
+  <p>
+    <button class="btn btn-default" {{action "signIn" "facebook"}}>
+      <i class="fa-facebook"></i>
+      Login with Facebook
+    </button>
+  </p>
 </div>

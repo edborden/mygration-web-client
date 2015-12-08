@@ -1,9 +1,6 @@
 import Ember from 'ember';
-const {
-  Route
-} = Ember;
 
-export default Route.extend({
+export default Ember.Route.extend({
 
   // EVENTS
 
@@ -15,15 +12,10 @@ export default Route.extend({
 
   actions: {
 
-    signIn(providerAtt) {
-      this.get('session').open('firebase', { provider: providerAtt }).then(function(data) {
-        console.log(data.currentUser);
-      });
-    },
-
     signOut() {
       this.get('session').close();
     }
 
   }
+  
 });
