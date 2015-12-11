@@ -1,12 +1,19 @@
 import Ember from 'ember';
 const {
   computed,
-  Controller
+  computed: { alias },
+  Controller,
+  inject: { service }
 } = Ember;
 
 export default Controller.extend({
 
-  // COMPUTED
+  // services
+  meService: service('me'),
+
+  // computed
+
+  me: alias('meService.model'),
 
   noNav: computed('currentRouteName', function() {
     return ['login'].contains(this.get('currentRouteName'));

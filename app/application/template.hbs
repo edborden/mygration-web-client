@@ -12,7 +12,7 @@
       <ul class='nav navbar-nav navbar-right'>
       
         {{#if session.isAuthenticated}}
-          <p class='navbar-text'>Logged in</p>
+          <p class='navbar-text'>{{me.firstName}} logged in</p>
           <button {{action 'signOut'}}>Sign out</button>
         {{else}}
           <li>

@@ -5,7 +5,11 @@ export default Ember.Route.extend({
   // EVENTS
 
   beforeModel() {
-    return this.get('session').fetch().catch(function() {});
+    return this.get('session').fetch().then((result) => {
+      console.log('success session');
+    }, () => {
+      console.log('no session');
+    });
   },
 
   // ACTIONS
