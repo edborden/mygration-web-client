@@ -16,7 +16,7 @@ export default Route.extend({
     signIn(provider) {
       let store = this.get('store');
       let session = this.get('session');
-      let meService = this.get('meService')
+      let meService = this.get('meService');
       session.open('firebase', { provider })
       .then((data) => {
         console.log(data);
@@ -43,12 +43,12 @@ export default Route.extend({
             newUser.save();
             newFacebook.save();
           } else {
-            console.log("Facebook exists");
+            console.log('Facebook exists');
 
             facebook.get('firstObject').get('user').then((currentUser) => {
               console.log(currentUser);
               if (isEmpty(currentUser)) {
-                console.log("No user");
+                console.log('No user');
               } else {
                 meService.set('model', currentUser);
                 this.transitionTo('index');
