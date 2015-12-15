@@ -11,3 +11,12 @@ test('visiting /login', function(assert) {
     expectButton('Login with Facebook', assert);
   });
 });
+
+test('logging in as a new user', function(assert) {
+  visit('/login');
+  click('button');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+  });
+});
