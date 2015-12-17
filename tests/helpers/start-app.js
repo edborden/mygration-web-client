@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Application from '../../app';
 import config from '../../config/environment';
 import './button';
+import './wait-for-promise';
 
 export default function startApp(attrs) {
   let application;

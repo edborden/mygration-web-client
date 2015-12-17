@@ -13,8 +13,11 @@ test('visiting /login', function(assert) {
 });
 
 test('logging in as a new user', function(assert) {
+
   visit('/login');
   click('button');
+
+  waitForPromise("route:login", "loginComplete");
 
   andThen(function() {
     assert.equal(currentURL(), '/');
