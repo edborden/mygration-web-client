@@ -24,7 +24,10 @@ export default Ember.Route.extend({
     },
 
     authenticate() {
-      this._setupMeService();
+      this._setupMeService()
+      .then(() => {
+        this.transitionTo('index');
+      });
     },
 
     accessDenied() {
@@ -32,47 +35,61 @@ export default Ember.Route.extend({
     }
   },
 
-  //helpers
+  // helpers
   _setupMeService() {
     let store = this.get('store');
-    let meService = this.get('meService');
     let session = this.get('session');
     let currentUser = session.get('currentUser');
-    let { cachedUserProfile } = currentUser;
-    store.query('facebook', {
-      orderBy: 'uid',
-      equalTo: currentUser.id
-    })
-    .then((facebook) => {
-      if (isEmpty(facebook)) {
-        let newUser = store.createRecord('user', {
-          // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-          firstName: cachedUserProfile.first_name,
-          lastName: cachedUserProfile.last_name
-        });
-        let newFacebook = store.createRecord('facebook', {
-          token: currentUser.accessToken,
-          uid: currentUser.id,
-          user: newUser
-        });
-        newUser.set('facebook', newFacebook);
-        newUser.save();
-        newFacebook.save();
-      } else {
-        console.log('Facebook exists');
-
-        facebook.get('firstObject').get('user')
-        .then((currentUser) => {
-          console.log(currentUser);
-          if (isEmpty(currentUser)) {
-            console.log('No user');
-          } else {
-            meService.set('model', currentUser);
-            this.transitionTo('index');
-          }
-        });
-      }
-
+    return new Ember.RSVP.Promise((resolve) => {
+      store.query('facebook', {
+        orderBy: 'uid',
+        equalTo: currentUser.id
+      })
+      .then((facebook) => {
+        if (isEmpty(facebook)) {
+          this._createUserWithFacebook(currentUser)
+          .then((result) => {
+            this._setCurrentUserOnMe(result);
+            resolve();
+          });
+        } else {
+          facebook.get('firstObject').get('user')
+          .then((result) => {
+            if (isEmpty(result)) {
+              console.log('No user for existing auth?');
+            } else {
+              this._setCurrentUserOnMe(result);
+              resolve();
+            }
+          });
+        }
+      });
     });
+  },
+
+  _createUserWithFacebook(currentUser) {
+    let store = this.get('store');
+    let { cachedUserProfile } = currentUser;
+    return new Ember.RSVP.Promise((resolve) => {
+      let newUser = store.createRecord('user', {
+        // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+        firstName: cachedUserProfile.first_name,
+        lastName: cachedUserProfile.last_name
+      });
+      let newFacebook = store.createRecord('facebook', {
+        token: currentUser.accessToken,
+        uid: currentUser.id,
+        user: newUser
+      });
+      newUser.set('facebook', newFacebook);
+      Ember.RSVP.all([newUser.save(), newFacebook.save()])
+      .then(function() {
+        resolve(newUser);
+      });
+    });
+  },
+
+  _setCurrentUserOnMe(currentUser) {
+    this.get('meService').set('model', currentUser);
   }
 });
