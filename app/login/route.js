@@ -14,7 +14,6 @@ export default Route.extend({
       .then(() => {
         this.send('authenticate');
       });
-      return false;
     }
 
   }
