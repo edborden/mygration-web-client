@@ -10,14 +10,10 @@ export default Ember.Route.extend({
   meService: service('me'),
 
   // events
-  beforeModel() {
-    let session = this.get('session');
-    return session.fetch().then(() => {
-      this._authenticate();
-    })
-    .catch( (error)=> {
-      console.log('no session', error);
-    });
+  afterModel() {
+    if (this.get('session').get('isAuthenticated')) {
+      this._setupMeService();
+    }
   },
 
   // actions
@@ -28,12 +24,16 @@ export default Ember.Route.extend({
     },
 
     authenticate() {
-      this._authenticate();
-    }
+      this._setupMeService();
+    },
 
+    accessDenied() {
+      this.transitionTo('login');
+    }
   },
 
-  _authenticate() {
+  //helpers
+  _setupMeService() {
     let store = this.get('store');
     let meService = this.get('meService');
     let session = this.get('session');
