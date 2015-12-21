@@ -8,12 +8,10 @@ export default Route.extend({
   // actions
   actions: {
 
-    signIn(provider) {
+    async signIn(provider) {
       let session = this.get('session');
-      session.open('firebase', { provider })
-      .then(() => {
-        this.send('authenticate');
-      });
+      await session.open('firebase', { provider });
+      this.send('authenticate');
     }
 
   }
