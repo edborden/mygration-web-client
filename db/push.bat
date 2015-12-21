@@ -1,0 +1,1 @@
+firebase data:set /industries industries.json -f glaring-heat-3049
