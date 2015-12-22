@@ -10,6 +10,9 @@ module.exports = function(defaults) {
     },
     'ember-cli-qunit': {
       useLintTree: false
+    },
+    inlineContent: {
+      favicon: { content: "<link rel='icon' href='/assets/images/favicon.ico'>" }
     }
   });
 
