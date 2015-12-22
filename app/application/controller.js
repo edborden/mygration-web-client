@@ -1,7 +1,7 @@
 import Ember from 'ember';
+import computed from 'ember-computed-decorators';
+import { alias } from 'ember-computed-decorators';
 const {
-  computed,
-  computed: { alias },
   Controller,
   inject: { service }
 } = Ember;
@@ -13,15 +13,17 @@ export default Controller.extend({
 
   // computed
 
-  me: alias('meService.model'),
+  @alias('meService.model') me,
 
-  noNav: computed('currentRouteName', function() {
+  @computed('currentRouteName')
+  noNav() {
     return ['login'].contains(this.get('currentRouteName'));
-  }),
+  },
 
-  year: computed(function() {
+  @computed
+  year() {
     let date = new Date();
     return date.getFullYear();
-  })
+  }
 
 });
