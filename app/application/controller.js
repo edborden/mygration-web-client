@@ -17,7 +17,7 @@ export default Controller.extend({
 
   @computed('currentRouteName')
   noNav() {
-    return ['login'].contains(this.get('currentRouteName'));
+    return ['login', 'index'].contains(this.get('currentRouteName'));
   },
 
   @computed
