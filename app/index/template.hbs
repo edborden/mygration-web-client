@@ -1,2 +1,19 @@
 <div class="protest">
+  <div class="self-center index-box text-center">
+    <p>
+      <img src='assets/images/full-logo.png'>
+    </p>
+    <hr class="purple">
+    <p>
+      Sign up to be notified when we launch!
+    </p>
+    <div class="email-signup-form input-group">
+      {{input type="text" value=email class="form-control" placeholder="Email address"}}
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" {{action "subscribe"}}>
+          <i class="fa-rss"></i>
+        </button>
+      </span>
+    </div>
+  </div>
 </div>
