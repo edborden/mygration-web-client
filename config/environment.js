@@ -13,7 +13,7 @@ module.exports = function(environment) {
       sessionServiceName: 'session'
     },
     contentSecurityPolicy: {
-      'connect-src': "'self' wss://*.firebaseio.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://worker-aws-us-east-1.iron.io",
       'frame-src': "'self' https://*.firebaseio.com",
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
     }
