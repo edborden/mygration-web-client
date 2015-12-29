@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import computed from 'ember-computed-decorators';
 import { alias } from 'ember-computed-decorators';
-//import { mailchimpSubscriber } from 'mygration-web-client/utils/iron-worker-handler'
+// import { mailchimpSubscriber } from 'mygration-web-client/utils/iron-worker-handler'
 
 const {
   Controller,
@@ -24,14 +24,14 @@ export default Controller.extend({
         type: 'post',
         data: JSON.stringify(data),
         dataType: 'json',
-        success: function (data) {
+        success(data) {
           console.log('success', data);
         },
-        error: function (data) {
+        error(data) {
           console.log('error', data);
         }
       });
-      this.set('email', null)
+      this.set('email', null);
     }
   }
 
