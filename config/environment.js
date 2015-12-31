@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     EmberENV: {FEATURES: {}},
     APP: {},
-    firebase: 'https://glaring-heat-3049.firebaseio.com/',
+    firebase: 'https://mygration-dev.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
     },
@@ -37,10 +37,17 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV.firebase = 'https://mygration-testing.firebaseio.com/';
+  }
+
+  if (environment === 'staging') {
+    ENV.environment = 'production';
+    ENV.firebase = 'https://crackling-heat-9174.firebaseio.com/';
   }
 
   if (environment === 'production') {
-
+    ENV.firebase = 'https://mygration.firebaseio.com/';
   }
 
   return ENV;
