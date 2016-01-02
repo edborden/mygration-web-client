@@ -16,6 +16,7 @@ export default Controller.extend(EmberValidations, {
 
   // services
   notify: service(),
+  ajax: service(),
 
   // validations
   validations: {
@@ -34,18 +35,11 @@ export default Controller.extend(EmberValidations, {
       if (this.get('isValid')) {
         let webhookurl = 'https://worker-aws-us-east-1.iron.io/2/projects/567a0d82f254f20006000195/tasks/webhook?code_name=mailchimp-subscriber&oauth=nRqryOE2PlgNPJh9GkgX';
         let data = { email: this.get('email') };
-        // refactor with ember-ajax
-        Ember.$.ajax({
-          url: webhookurl,
-          type: 'post',
-          data: JSON.stringify(data),
-          dataType: 'json',
-          success: (data) => {
-            this.get('notify').success("You've been successfully subscribed!");
-          },
-          error(data) {
-            console.log('error', data);
-          }
+        // refactor with iron-worker-handler
+        this.get('ajax').post(webhookurl, {
+          data: JSON.stringify(data)
+        }).then(() => {
+          this.get('notify').success("You've been successfully subscribed!");
         });
       } else {
         let error = this.get('errors').get('email').get('firstObject');
