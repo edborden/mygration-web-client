@@ -1,5 +1,11 @@
 <ul class="list-group">
   <li class="list-group-item">
-    Skeleton
+    {{#x-select value=model.detail.industry}}
+      {{#each model.industries as |industry|}}
+        <option>Select industry</option>
+        {{#x-option value=industry}}{{industry.name}}{{/x-option}}
+      {{/each}}
+    {{/x-select}}
+    {{model.detail.industry.name}}
   </li>
 </ul>
