@@ -2,7 +2,6 @@ import Ember from 'ember';
 import computed from 'ember-computed-decorators';
 import { alias } from 'ember-computed-decorators';
 import EmberValidations from 'ember-validations';
-// import { mailchimpSubscriber } from 'mygration-web-client/utils/iron-worker-handler'
 
 const {
   Controller,
@@ -16,7 +15,7 @@ export default Controller.extend(EmberValidations, {
 
   // services
   notify: service(),
-  ajax: service(),
+  iron: service(),
 
   // validations
   validations: {
@@ -33,14 +32,7 @@ export default Controller.extend(EmberValidations, {
 
     subscribe() {
       if (this.get('isValid')) {
-        let webhookurl = 'https://worker-aws-us-east-1.iron.io/2/projects/567a0d82f254f20006000195/tasks/webhook?code_name=mailchimp-subscriber&oauth=nRqryOE2PlgNPJh9GkgX';
-        let data = { email: this.get('email') };
-        // refactor with iron-worker-handler
-        this.get('ajax').post(webhookurl, {
-          data: JSON.stringify(data)
-        }).then(() => {
-          this.get('notify').success("You've been successfully subscribed!");
-        });
+        this.get('iron').subscribe(this.get('email'));
       } else {
         let error = this.get('errors').get('email').get('firstObject');
         this.get('notify').error(error);
