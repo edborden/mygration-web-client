@@ -48,7 +48,7 @@ export default Controller.extend(EmberValidations, {
           }
         });
       } else {
-        let error = this.get( 'errors' ).get( 'email' ).get('firstObject');
+        let error = this.get('errors').get('email').get('firstObject');
         this.get('notify').error(error);
       }
       this.set('email', null);
