@@ -8,11 +8,9 @@ const {
 
 export default Model.extend({
 
-  uid: attr('string'),
-  pic: attr('string'),
-  token: attr('string'),
+  // attributes
 
   // associations
-  user: belongsTo('user')
+  industry: belongsTo('industry')
 
 });

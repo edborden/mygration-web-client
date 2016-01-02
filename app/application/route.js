@@ -21,6 +21,7 @@ export default Ember.Route.extend({
 
     signOut() {
       this.get('session').close();
+      this.transitionTo('index');
     },
 
     authenticate() {

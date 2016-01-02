@@ -8,14 +8,13 @@ const {
 
 export default Model.extend({
 
-  // ATTRIBUTES
-
+  // attributes
   firstName: attr('string'),
   lastName: attr('string'),
   email: attr('string'),
 
-  // ASSOCIATIONS
-
-  facebook: belongsTo('facebook')
+  // associations
+  facebook: belongsTo('facebook'),
+  detail: belongsTo('detail')
 
 });
