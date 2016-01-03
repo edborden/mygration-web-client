@@ -3,17 +3,15 @@ import DS from 'ember-data';
 const {
   Model,
   attr,
-  belongsTo,
-  hasMany
+  belongsTo
 } = DS;
 
 export default Model.extend({
 
   // attributes
-  age: attr('number'),
+  proficiency: attr('number'),
 
   // associations
-  citizenships: hasMany('citizenship'),
-  languages: hasMany('language')
+  tongue: belongsTo('tongue')
 
 });
