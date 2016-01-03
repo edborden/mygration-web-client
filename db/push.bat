@@ -1,1 +1,1 @@
-firebase data:set /industries industries.json -f mygration-dev
+firebase data:set /%1 %1.json -f %2
