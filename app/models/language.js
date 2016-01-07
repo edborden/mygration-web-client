@@ -27,6 +27,6 @@ export default Model.extend({
     let proficiency = this.get('proficiency');
     let proficiencyEnum = this.get('proficiencyEnum');
     return proficiencyEnum[proficiency];
-  })
+  }
 
 });
