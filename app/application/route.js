@@ -27,7 +27,7 @@ export default Ember.Route.extend({
     authenticate() {
       this._setupMeService()
       .then(() => {
-        this.transitionTo('index');
+        this.transitionTo('me');
       });
     },
 
