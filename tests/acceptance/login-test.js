@@ -12,7 +12,6 @@ test('visiting /login', function(assert) {
   });
 });
 
-/*
 test('logging in as a new user', function(assert) {
   visit('/login');
   click('button');
@@ -21,5 +20,3 @@ test('logging in as a new user', function(assert) {
     assert.equal(currentURL(), '/');
   });
 });
-
-*/
