@@ -47,5 +47,9 @@
 <ul class="list-group">
   <li class="list-group-item">
     <h4>Interests  <small>(Causes, skills, or projects, max 3)</small></h4>
+    {{#each model.interests as |interest|}}
+      <p>{{interest.name}}</p>
+    {{/each}}
+    {{attribute-adder detail=model attributeName="interest"}}
   </li>
 </ul>
