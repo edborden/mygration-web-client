@@ -37,11 +37,15 @@
 </ul>
 <ul class="list-group">
   <li class="list-group-item">
-    <h4>Specializations</h4>
+    <h4>Specializations  <small>(Academic or Professional, max 2)</small></h4>
+    {{#each model.specializations as |specialization|}}
+      <p>{{specialization.name}}</p>
+    {{/each}}
+    {{attribute-adder detail=model attributeName="specialization"}}
   </li>
 </ul>
 <ul class="list-group">
   <li class="list-group-item">
-    <h4>Interests</h4>
+    <h4>Interests  <small>(Causes, skills, or projects, max 3)</small></h4>
   </li>
 </ul>

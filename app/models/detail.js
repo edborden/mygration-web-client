@@ -26,6 +26,7 @@ export default Model.extend({
   citizenships: hasMany('country'),
   languages: hasMany('language'),
   experiences: hasMany('experience'),
+  specializations: hasMany('specialization'),
 
   // events
   /* 
