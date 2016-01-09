@@ -17,6 +17,6 @@ test('logging in as a new user', function(assert) {
   click('button');
 
   andThen(function() {
-    assert.equal(currentURL(), '/');
+    assert.equal(currentURL(), '/me/preferences');
   });
 });

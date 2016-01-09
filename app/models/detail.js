@@ -23,7 +23,7 @@ export default Model.extend({
   age: attr('number'),
 
   // associations
-  //citizenships: hasMany('citizenship'),
+  // citizenships: hasMany('citizenship'),
   languages: hasMany('language'),
 
   // events

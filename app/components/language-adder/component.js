@@ -4,7 +4,7 @@ import { alias } from 'ember-computed-decorators';
 import EmberValidations from 'ember-validations';
 const {
   Component,
-  inject: { service },
+  inject: { service }
 } = Ember;
 
 export default Component.extend(EmberValidations, {
