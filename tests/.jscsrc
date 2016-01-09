@@ -1,4 +1,3 @@
 {
-  "preset": "ember-suave",
-  "esnext": true
+  "preset": "ember-suave"
 }

@@ -1,0 +1,55 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Age</h4>
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Citizenships</h4>
+    {{#each model.citizenships as |country|}}
+      <p>{{country.demonym}}</p>
+    {{/each}}
+    {{citizenship-adder detail=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Languages</h4>
+    {{#each model.languages as |language|}}
+      <p>{{language.tongue.name}} - {{language.proficiencyString}}</p>
+    {{/each}}
+    {{language-adder detail=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Education</h4>
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Work Experience</h4>
+    {{#each model.experiences as |experience|}}
+      <p>{{experience.role}} ({{experience.industry.name}}: {{experience.lengthString}})</p>
+    {{/each}}
+    {{experience-adder detail=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Specializations  <small>(Academic or Professional, max 2)</small></h4>
+    {{#each model.specializations as |specialization|}}
+      <p>{{specialization.name}}</p>
+    {{/each}}
+    {{attribute-adder detail=model attributeName="specialization"}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Interests  <small>(Causes, skills, or projects, max 3)</small></h4>
+    {{#each model.interests as |interest|}}
+      <p>{{interest.name}}</p>
+    {{/each}}
+    {{attribute-adder detail=model attributeName="interest"}}
+  </li>
+</ul>

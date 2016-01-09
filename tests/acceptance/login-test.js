@@ -12,14 +12,11 @@ test('visiting /login', function(assert) {
   });
 });
 
-/*
 test('logging in as a new user', function(assert) {
   visit('/login');
   click('button');
 
   andThen(function() {
-    assert.equal(currentURL(), '/');
+    assert.equal(currentURL(), '/me/preferences');
   });
 });
-
-*/

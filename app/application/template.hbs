@@ -12,12 +12,16 @@
       <ul class='nav navbar-nav navbar-right'>
       
         {{#if session.isAuthenticated}}
-          <p class='navbar-text'>{{me.firstName}} logged in</p>
-          <button {{action 'signOut'}}>Sign out</button>
+          <li>
+            {{#link-to 'me'}}
+              <i class='fa-user fa-lg'></i>
+              {{me.firstName}}
+            {{/link-to}}
+          </li>
         {{else}}
           <li>
             {{#link-to 'login'}}
-                <i class='fa-sign-in fa-lg'></i>
+              <i class='fa-sign-in fa-lg'></i>
             {{/link-to}}
           </li>
         {{/if}}

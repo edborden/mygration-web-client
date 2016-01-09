@@ -1,0 +1,24 @@
+{{#if adding}}
+  <div class="row">
+    <div class="col-md-11">
+      {{#x-select value=model classNames="form-control"}}
+        <option>Select citizenship</option>
+        {{#each countries as |country|}}
+          {{#x-option value=country}}
+            {{country.demonym}}
+          {{/x-option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-primary" disabled={{unless isValid true}} {{action 'save'}}>
+        <i class="fa-check"></i>
+      </button>
+    </div>
+  </div>
+{{else}}
+  <button class="btn btn-primary" {{action 'add'}}>
+    Add Citizenship
+    <i class="fa-plus"></i>
+  </button>
+{{/if}}

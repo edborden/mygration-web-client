@@ -1,0 +1,34 @@
+{{#if adding}}
+  <div class="row">
+    <div class="col-md-6">
+      {{#x-select value=tongue classNames="form-control"}}
+        <option>Select language</option>
+        {{#each tongues as |tongue|}}
+          {{#x-option value=tongue}}
+            {{tongue.name}} ({{tongue.nativeName}})
+          {{/x-option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
+    <div class="col-md-5">
+      {{#x-select value=proficiency classNames="form-control"}}
+        <option>Select proficiency</option>
+        {{#each-in model.proficiencyEnum as |value label|}}
+          {{#x-option value=value}}
+            {{label}}
+          {{/x-option}}
+        {{/each-in}}
+      {{/x-select}}      
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-primary" disabled={{unless isValid true}} {{action 'save'}}>
+        <i class="fa-check"></i>
+      </button>
+    </div>
+  </div>
+{{else}}
+  <button class="btn btn-primary" {{action 'add'}}>
+    Add Language
+    <i class="fa-plus"></i>
+  </button>
+{{/if}}

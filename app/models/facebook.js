@@ -12,7 +12,7 @@ export default Model.extend({
   pic: attr('string'),
   token: attr('string'),
 
-  // relationships
+  // associations
   user: belongsTo('user')
 
 });

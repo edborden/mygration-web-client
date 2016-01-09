@@ -12,7 +12,7 @@ export default Ember.Route.extend({
   // events
   afterModel() {
     if (this.get('session').get('isAuthenticated')) {
-      this._setupMeService();
+      return this._setupMeService();
     }
   },
 
@@ -21,12 +21,13 @@ export default Ember.Route.extend({
 
     signOut() {
       this.get('session').close();
+      this.transitionTo('index');
     },
 
     authenticate() {
       this._setupMeService()
       .then(() => {
-        this.transitionTo('index');
+        this.transitionTo('me');
       });
     },
 
