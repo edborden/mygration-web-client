@@ -19,10 +19,8 @@ export default Model.extend({
   meService: service('me'),
   @alias('meService.model') me,
 
-  // attributes
-  age: attr('number'),
-
   // associations
+  age: belongsTo('age'),
   citizenships: hasMany('country'),
   languages: hasMany('language'),
   experiences: hasMany('experience'),

@@ -1,6 +1,11 @@
 <ul class="list-group">
   <li class="list-group-item">
     <h4>Age</h4>
+    {{#if model.age}}
+      {{model.age.years}}
+    {{else}}
+      {{age-adder detail=model}}
+    {{/if}}
   </li>
 </ul>
 <ul class="list-group">
