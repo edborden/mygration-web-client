@@ -25,6 +25,7 @@ export default Model.extend({
   // associations
   // citizenships: hasMany('citizenship'),
   languages: hasMany('language'),
+  experiences: hasMany('experience'),
 
   // events
   didCreate() {

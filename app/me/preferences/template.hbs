@@ -14,7 +14,7 @@
     {{#each model.languages as |language|}}
       <p>{{language.tongue.name}} - {{language.proficiencyString}}</p>
     {{/each}}
-    {{language-adder detail=model}}    
+    {{language-adder detail=model}}
   </li>
 </ul>
 <ul class="list-group">
@@ -25,6 +25,10 @@
 <ul class="list-group">
   <li class="list-group-item">
     <h4>Work Experience</h4>
+    {{#each model.experiences as |experience|}}
+      <p>{{experience.role}} ({{experience.industry.name}}: {{experience.lengthString}})</p>
+    {{/each}}
+    {{experience-adder detail=model}}
   </li>
 </ul>
 <ul class="list-group">
