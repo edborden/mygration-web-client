@@ -29,6 +29,10 @@
 <ul class="list-group">
   <li class="list-group-item">
     <h4>Education</h4>
+    {{#each model.educations as |education|}}
+      <p>{{education.degree.levelString}}: {{education.field.name}} ({{education.school.name}})</p>
+    {{/each}}
+    {{education-adder detail=model}}
   </li>
 </ul>
 <ul class="list-group">

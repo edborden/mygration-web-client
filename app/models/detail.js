@@ -26,6 +26,7 @@ export default Model.extend({
   experiences: hasMany('experience'),
   specializations: hasMany('specialization'),
   interests: hasMany('interest'),
+  educations: hasMany('education'),
 
   // computed
   @equal('specializations.length', 2) maxSpecializations,
