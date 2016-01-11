@@ -20,6 +20,11 @@ export default Controller.extend({
     return ['login', 'index'].contains(this.get('currentRouteName'));
   },
 
+  @computed('currentRouteName')
+  noFooter() {
+    return ['index'].contains(this.get('currentRouteName'));
+  },
+
   @computed
   year() {
     let date = new Date();
