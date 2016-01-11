@@ -46,7 +46,9 @@
     {{#each model.specializations as |specialization|}}
       <p>{{specialization.name}}</p>
     {{/each}}
-    {{attribute-adder detail=model attributeName="specialization"}}
+    {{#unless model.maxSpecializations}}
+      {{attribute-adder detail=model attributeName="specialization"}}
+    {{/unless}}
   </li>
 </ul>
 <ul class="list-group">
@@ -55,6 +57,8 @@
     {{#each model.interests as |interest|}}
       <p>{{interest.name}}</p>
     {{/each}}
-    {{attribute-adder detail=model attributeName="interest"}}
+    {{#unless model.maxInterests}}
+      {{attribute-adder detail=model attributeName="interest"}}
+    {{/unless}}
   </li>
 </ul>

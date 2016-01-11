@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import { alias } from 'ember-computed-decorators';
+import { alias, equal } from 'ember-computed-decorators';
 
 const {
   Model,
@@ -26,6 +26,10 @@ export default Model.extend({
   experiences: hasMany('experience'),
   specializations: hasMany('specialization'),
   interests: hasMany('interest'),
+
+  // computed
+  @equal('specializations.length', 2) maxSpecializations,
+  @equal('interests.length', 2) maxInterests,
 
   // events
   /*
