@@ -3,7 +3,8 @@ import DS from 'ember-data';
 const {
   Model,
   attr,
-  belongsTo
+  belongsTo,
+  hasMany
 } = DS;
 
 export default Model.extend({
@@ -15,6 +16,7 @@ export default Model.extend({
 
   // associations
   facebook: belongsTo('facebook'),
-  detail: belongsTo('detail')
+  detail: belongsTo('detail'),
+  listings: hasMany('listing')
 
 });
