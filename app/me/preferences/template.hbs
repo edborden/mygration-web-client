@@ -2,7 +2,7 @@
   <li class="list-group-item">
     <h4>Age</h4>
     {{#if model.age}}
-      {{model.age.years}}
+      {{model.age.years}} <i class="fa-times red click-fix"></i>
     {{else}}
       {{age-adder detail=model}}
     {{/if}}
@@ -11,10 +11,10 @@
 <ul class="list-group">
   <li class="list-group-item">
     <h4>Citizenships</h4>
-    {{#each model.citizenships as |country|}}
+    {{#each model.countries as |country|}}
       <p>{{country.demonym}}</p>
     {{/each}}
-    {{citizenship-adder detail=model}}
+    {{country-adder detail=model}}
   </li>
 </ul>
 <ul class="list-group">

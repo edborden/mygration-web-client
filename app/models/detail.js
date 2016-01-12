@@ -12,7 +12,7 @@ export default Model.extend(HasMe, {
 
   // associations
   age: belongsTo('age'),
-  citizenships: hasMany('country'),
+  countries: hasMany('country'),
   languages: hasMany('language'),
   experiences: hasMany('experience'),
   specializations: hasMany('specialization'),
