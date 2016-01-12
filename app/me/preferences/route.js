@@ -3,7 +3,6 @@ import { alias } from 'ember-computed-decorators';
 
 const {
   Route,
-  RSVP,
   inject: { service },
   isEmpty
 } = Ember;
