@@ -3,7 +3,7 @@ import computed from 'ember-computed-decorators';
 import HasMe from 'mygration-web-client/mixins/has-me';
 
 const {
-  Controller,
+  Controller
 } = Ember;
 
 export default Controller.extend(HasMe, {
