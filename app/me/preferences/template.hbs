@@ -12,7 +12,7 @@
   <li class="list-group-item">
     <h4>Citizenships</h4>
     {{#each model.countries as |country|}}
-      <p>{{country.demonym}}</p>
+      <p>{{country.demonym}} <i class="fa-times red click-fix" {{action 'removeCountry' country}}></i></p>
     {{/each}}
     {{country-adder detail=model}}
   </li>
