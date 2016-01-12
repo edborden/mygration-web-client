@@ -1,23 +1,14 @@
 import DS from 'ember-data';
-import Ember from 'ember';
-import { alias, equal } from 'ember-computed-decorators';
+import HasMe from 'mygration-web-client/mixins/has-me';
+import { equal } from 'ember-computed-decorators';
 
 const {
   Model,
-  attr,
   belongsTo,
   hasMany
 } = DS;
 
-const {
-  inject: { service }
-} = Ember;
-
-export default Model.extend({
-
-  // services
-  meService: service('me'),
-  @alias('meService.model') me,
+export default Model.extend(HasMe, {
 
   // associations
   age: belongsTo('age'),
