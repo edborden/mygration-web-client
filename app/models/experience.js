@@ -13,9 +13,9 @@ export default Model.extend({
   // attributes
   length: attr('number'),
   lengthEnum: {
-    1: '1 - 2 Years',
-    2: '2 - 4 Years',
-    3: '5+ Years'
+    0: '1 - 2 Years',
+    1: '2 - 4 Years',
+    2: '5+ Years'
   },
   role: attr('string'),
 

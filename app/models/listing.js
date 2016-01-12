@@ -8,6 +8,8 @@ const {
 export default Model.extend({
 
   // attributes
-  name: attr('string')
+  title: attr('string'),
+  description: attr('string'),
+  price: attr('number')
 
 });

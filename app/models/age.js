@@ -8,6 +8,6 @@ const {
 export default Model.extend({
 
   // attributes
-  name: attr('string')
+  years: attr('number')
 
 });

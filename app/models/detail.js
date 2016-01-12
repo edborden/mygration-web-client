@@ -1,33 +1,27 @@
 import DS from 'ember-data';
-import Ember from 'ember';
-import { alias } from 'ember-computed-decorators';
+import HasMe from 'mygration-web-client/mixins/has-me';
+import { equal } from 'ember-computed-decorators';
 
 const {
   Model,
-  attr,
   belongsTo,
   hasMany
 } = DS;
 
-const {
-  inject: { service }
-} = Ember;
-
-export default Model.extend({
-
-  // services
-  meService: service('me'),
-  @alias('meService.model') me,
-
-  // attributes
-  age: attr('number'),
+export default Model.extend(HasMe, {
 
   // associations
-  citizenships: hasMany('country'),
+  age: belongsTo('age'),
+  countries: hasMany('country'),
   languages: hasMany('language'),
   experiences: hasMany('experience'),
   specializations: hasMany('specialization'),
   interests: hasMany('interest'),
+  educations: hasMany('education'),
+
+  // computed
+  @equal('specializations.length', 2) maxSpecializations,
+  @equal('interests.length', 2) maxInterests,
 
   // events
   /*

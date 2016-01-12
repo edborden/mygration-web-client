@@ -13,9 +13,9 @@ export default Model.extend({
   // attributes
   proficiency: attr('number'),
   proficiencyEnum: {
-    1: 'Elementary',
-    2: 'Professional',
-    3: 'Native/Bilingual'
+    0: 'Elementary',
+    1: 'Professional',
+    2: 'Native/Bilingual'
   },
 
   // associations

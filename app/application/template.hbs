@@ -1,7 +1,7 @@
 {{#unless noNav}}
   <nav class='navbar navbar-default'>
 
-    <div class='container'>
+    <div class='container-fluid'>
 
       <div class='navbar-header'>
         {{#link-to 'index' classNames='navbar-brand'}}
@@ -12,6 +12,11 @@
       <ul class='nav navbar-nav navbar-right'>
       
         {{#if session.isAuthenticated}}
+          <li>
+            {{#link-to 'me.listings.add'}}
+              <i class='fa-plus fa-lg'></i>
+            {{/link-to}}
+          </li>              
           <li>
             {{#link-to 'me'}}
               <i class='fa-user fa-lg'></i>
@@ -36,12 +41,14 @@
   {{outlet}}
 </div>
 
-<div class='footer'>
-  <div class='container'>
-    <p class='text-center'>
-      © {{year}} mYgration
-    </p>
+{{#unless noFooter}}
+  <div class='footer'>
+    <div class='container-fluid'>
+      <p class='text-center'>
+        © {{year}} mYgration
+      </p>
+    </div>
   </div>
-</div>
+{{/unless}}
 
 {{ember-notify messageStyle='bootstrap'}}

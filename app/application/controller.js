@@ -1,23 +1,22 @@
 import Ember from 'ember';
 import computed from 'ember-computed-decorators';
-import { alias } from 'ember-computed-decorators';
+import HasMe from 'mygration-web-client/mixins/has-me';
+
 const {
-  Controller,
-  inject: { service }
+  Controller
 } = Ember;
 
-export default Controller.extend({
-
-  // services
-  meService: service('me'),
+export default Controller.extend(HasMe, {
 
   // computed
-
-  @alias('meService.model') me,
-
   @computed('currentRouteName')
   noNav() {
     return ['login', 'index'].contains(this.get('currentRouteName'));
+  },
+
+  @computed('currentRouteName')
+  noFooter() {
+    return ['index'].contains(this.get('currentRouteName'));
   },
 
   @computed

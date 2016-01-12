@@ -37,9 +37,9 @@ export default Component.extend(EmberValidations, {
     },
 
     async save() {
-      let citizenship = this.get('model');
+      let country = this.get('model');
       let detail = this.get('detail');
-      detail.get('citizenships').pushObject(citizenship);
+      detail.get('countries').pushObject(country);
       detail.save();
       this.set('model', null);
       this.set('adding', false);
