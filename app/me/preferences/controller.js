@@ -18,6 +18,12 @@ export default Controller.extend({
       detail.save();
     },
 
+    removeGender() {
+      let detail = this.get('model');
+      detail.set('gender', null);
+      detail.save();
+    },
+
     removeEducation(education) {
       let detail = this.get('model');
       let educations = detail.get('educations');

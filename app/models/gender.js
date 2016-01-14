@@ -11,8 +11,8 @@ export default Model.extend({
   // attributes
   gender: attr('number'),
   genderEnum: {
-    0: 'female',
-    1: 'male'
+    0: 'Female',
+    1: 'Male'
   },
 
   // computed
