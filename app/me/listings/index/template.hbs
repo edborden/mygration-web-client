@@ -2,14 +2,28 @@
   <li class="list-group-item list-group-item-info">
     My Listings
   </li>
-  {{#each model as |listing|}}
-    <h5>{{listing.title}}</h5>
-    <p>{{listing.description}}</p>
-    <p>Price: {{listing.price}}</p>
-  {{else}}
-    <li class="list-group-item">
-      <h4>You don't have any listings yet!</h4>
-      Add Listing
-    </li>
-  {{/each}}
+  <li class="list-group-item">
+    <div class="row">
+      {{#each model as |listing|}}
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <div class="caption">
+              <h4>
+                {{listing.title}}
+                <small>
+                  <i class="fa-edit click-fix" {{action 'editListing' listing}}></i>
+                  <i class="fa-times red click-fix" {{action 'removeListing' listing}}></i>
+                </small>
+              </h4>
+              <p>{{listing.description}}</p>
+              <p>Price: {{listing.price}}</p>
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <h4>You don't have any listings yet!</h4>
+        Add Listing
+      {{/each}}
+    </div>
+  </li>
 </ul>

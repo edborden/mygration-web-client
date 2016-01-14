@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('preferences');
     this.route('listings', function() {
       this.route('add');
+      this.route('edit', { path: 'edit/:listing_id' });
     });
   });
 });
