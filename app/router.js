@@ -12,7 +12,6 @@ Router.map(function() {
     this.route('listings', function() {
       this.route('add');
     });
-    this.route('payment');
   });
 });
 
