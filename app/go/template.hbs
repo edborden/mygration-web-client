@@ -1,0 +1,18 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      {{model.length}}
+    </div>
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <div class="row">
+      {{#each model as |listing|}}
+        {{listing-card model=listing owner=false}}
+      {{else}}
+        <h4>No listings!</h4>
+      {{/each}}
+    </div>
+  </li>
+</ul>

@@ -14,6 +14,7 @@ Router.map(function() {
       this.route('edit', { path: 'edit/:listing_id' });
     });
   });
+  this.route('go');
 });
 
 export default Router;
