@@ -19,23 +19,13 @@ export default Component.extend(EmberValidations, {
 
   // computed
   @computed
-  industries() {
-    return this.get('store').findAll('industry');
+  genders() {
+    return this.get('store').findAll('gender');
   },
-
-  @alias('model.industry') industry,
-  @alias('model.role') role,
-  @alias('model.length') length,
 
   // validations
   validations: {
-    industry: {
-      presence: true
-    },
-    role: {
-      presence: true
-    },
-    length: {
+    model: {
       presence: true
     }
   },
@@ -44,14 +34,12 @@ export default Component.extend(EmberValidations, {
   actions: {
     add() {
       this.set('adding', true);
-      this.set('model', this.get('store').createRecord('experience'));
     },
 
     async save() {
-      let experience = this.get('model');
-      await experience.save();
+      let gender = this.get('model');
       let profile = this.get('profile');
-      profile.get('experiences').pushObject(experience);
+      profile.set('gender', gender);
       profile.save();
       this.set('model', null);
       this.set('adding', false);

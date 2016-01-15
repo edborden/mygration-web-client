@@ -4,10 +4,15 @@ import HasMe from 'mygration-web-client/mixins/has-me';
 import EmberValidations from 'ember-validations';
 
 const {
-  Controller
+  Component,
+  inject: { service }
 } = Ember;
 
-export default Controller.extend(HasMe, EmberValidations, {
+export default Component.extend(HasMe, EmberValidations, {
+
+  // services
+  routing: service('-routing'),
+  notify: service(),
 
   // computed
   @alias('model.title') title,
@@ -31,13 +36,22 @@ export default Controller.extend(HasMe, EmberValidations, {
   actions: {
     async save() {
       let model = this.get('model');
-      let me = this.get('me');
+      let isNew = model.get('isNew');
       await model.save();
-      let listings = me.get('listings');
-      listings.pushObject(model);
-      me.save();
-      this.transitionToRoute('me.listings');
+      if (isNew) {
+        this.addToUser(model);
+      }
+      this.get('routing').transitionTo('me.listings');
+      this.get('notify').success(`Successfully saved listing.`);
     }
+  },
+
+  // helpers
+  addToUser(model) {
+    let me = this.get('me');
+    let listings = me.get('listings');
+    listings.pushObject(model);
+    me.save();
   }
 
 });

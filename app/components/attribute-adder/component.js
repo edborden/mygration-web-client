@@ -10,7 +10,7 @@ const {
 export default Component.extend(EmberValidations, {
 
   // attributes
-  detail: null,
+  profile: null,
   model: null,
   adding: false,
   attributeName: null,
@@ -45,10 +45,10 @@ export default Component.extend(EmberValidations, {
     async save() {
       let attribute = this.get('model');
       await attribute.save();
-      let detail = this.get('detail');
+      let profile = this.get('profile');
       let collectionName = this.get('attributeName').pluralize();
-      detail.get(collectionName).pushObject(attribute);
-      detail.save();
+      profile.get(collectionName).pushObject(attribute);
+      profile.save();
       this.set('model', null);
       this.set('adding', false);
     }

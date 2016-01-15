@@ -13,10 +13,14 @@
       
         {{#if session.isAuthenticated}}
           <li>
+            {{#link-to 'go'}}
+              <i class='fa-lg fa-search'></i>
+            {{/link-to}}
+          </li>          <li>
             {{#link-to 'me.listings.add'}}
               <i class='fa-plus fa-lg'></i>
             {{/link-to}}
-          </li>              
+          </li>
           <li>
             {{#link-to 'me'}}
               <i class='fa-user fa-lg'></i>

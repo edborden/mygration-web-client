@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import computed from 'ember-computed-decorators';
 
 const {
   Model,
@@ -16,7 +17,8 @@ export default Model.extend({
 
   // associations
   facebook: belongsTo('facebook'),
-  detail: belongsTo('detail'),
-  listings: hasMany('listing')
+  profile: belongsTo('profile'),
+  listings: hasMany('listing'),
+  gender: belongsTo('gender')
 
 });

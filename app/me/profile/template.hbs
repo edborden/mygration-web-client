@@ -1,0 +1,86 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Age</h4>
+    {{#if model.age}}
+      {{model.age.years}} <i class="fa-times red click-fix" {{action 'removeAge'}}></i>
+    {{else}}
+      {{age-adder profile=model}}
+    {{/if}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Gender</h4>
+    {{#if model.gender}}
+      {{model.gender.genderString}} <i class="fa-times red click-fix" {{action 'removeGender'}}></i>
+    {{else}}
+      {{gender-adder profile=model}}
+    {{/if}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Citizenships</h4>
+    {{#each model.countries as |country|}}
+      <p>{{country.demonym}} <i class="fa-times red click-fix" {{action 'removeCountry' country}}></i></p>
+    {{/each}}
+    {{country-adder profile=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Languages</h4>
+    {{#each model.languages as |language|}}
+      <p>
+        {{language.tongue.name}} - {{language.proficiencyString}} <i class="fa-times red click-fix" {{action 'removeLanguage' language}}></i>
+      </p>
+    {{/each}}
+    {{language-adder profile=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Education</h4>
+    {{#each model.educations as |education|}}
+      <p>
+        {{education.degree.levelString}}: {{education.field.name}} ({{education.school.name}}) <i class="fa-times red click-fix" {{action 'removeEducation' education}}></i>
+      </p>
+    {{/each}}
+    {{education-adder profile=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Work Experience</h4>
+    {{#each model.experiences as |experience|}}
+      <p>
+        {{experience.role}} ({{experience.industry.name}}: {{experience.lengthString}}) <i class="fa-times red click-fix" {{action 'removeExperience' experience}}></i>
+      </p>
+    {{/each}}
+    {{experience-adder profile=model}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Specializations  <small>(Academic or Professional, max 2)</small></h4>
+    {{#each model.specializations as |specialization|}}
+      <p>
+        {{specialization.name}} <i class="fa-times red click-fix" {{action 'removeSpecialization' specialization}}></i>
+      </p>
+    {{/each}}
+    {{#unless model.maxSpecializations}}
+      {{attribute-adder profile=model attributeName="specialization"}}
+    {{/unless}}
+  </li>
+</ul>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h4>Interests  <small>(Causes, skills, or projects, max 3)</small></h4>
+    {{#each model.interests as |interest|}}
+      <p>{{interest.name}} <i class="fa-times red click-fix" {{action 'removeInterest' interest}}></i></p>
+    {{/each}}
+    {{#unless model.maxInterests}}
+      {{attribute-adder profile=model attributeName="interest"}}
+    {{/unless}}
+  </li>
+</ul>

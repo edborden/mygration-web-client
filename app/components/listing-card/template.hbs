@@ -1,0 +1,17 @@
+<div class="col-md-4">
+  <div class="thumbnail">
+    <div class="caption">
+      <h4>
+        {{model.title}}
+        {{#if owner}}
+          <small>
+            <i class="fa-edit click-fix" {{action 'editListing'}}></i>
+            <i class="fa-times red click-fix" {{action 'removeListing'}}></i>
+          </small>
+        {{/if}}
+      </h4>
+      <p>{{model.description}}</p>
+      <p>Price: {{model.price}}</p>
+    </div>
+  </div>
+</div>

@@ -33,6 +33,7 @@ export default Controller.extend(EmberValidations, {
     subscribe() {
       if (this.get('isValid')) {
         this.get('iron').subscribe(this.get('email'));
+        this.get('notify').success('Successfully subscribed. Thanks!');
       } else {
         let error = this.get('errors').get('email').get('firstObject');
         this.get('notify').error(error);

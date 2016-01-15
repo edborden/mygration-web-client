@@ -1,7 +1,14 @@
 {{#if adding}}
   <div class="row">
     <div class="col-md-11">
-      {{input value=model classNames="form-control" type="number"}}
+      {{#x-select value=model classNames="form-control"}}
+        <option>Select gender</option>
+        {{#each genders as |gender|}}
+          {{#x-option value=gender}}
+            {{gender.genderString}}
+          {{/x-option}}
+        {{/each}}
+      {{/x-select}}
     </div>
     <div class="col-md-1">
       <button class="btn btn-primary" disabled={{unless isValid true}} {{action 'save'}}>
@@ -11,6 +18,6 @@
   </div>
 {{else}}
   <button class="btn btn-primary" {{action 'add'}}>
-    Select Age
+    Select Gender
   </button>
 {{/if}}
