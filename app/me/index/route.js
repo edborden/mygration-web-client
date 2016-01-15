@@ -6,7 +6,7 @@ const {
 export default Route.extend({
 
   beforeModel() {
-    this.replaceWith('me.preferences');
+    this.replaceWith('me.profile');
   }
 
 });

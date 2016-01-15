@@ -8,7 +8,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.authenticatedRoute('me', function() {
-    this.route('preferences');
+    this.route('profile');
     this.route('listings', function() {
       this.route('add');
       this.route('edit', { path: 'edit/:listing_id' });
