@@ -11,7 +11,7 @@ const {
 export default Component.extend(EmberValidations, {
 
   // attributes
-  detail: null,
+  profile: null,
   model: null,
   adding: false,
 
@@ -34,11 +34,11 @@ export default Component.extend(EmberValidations, {
     async save() {
       let ageNumber = this.get('model');
       await this._setAge(ageNumber);
-      let detail = this.get('detail');
+      let profile = this.get('profile');
       let age = this.get('age');
       await age.save();
-      detail.set('age', age);
-      detail.save();
+      profile.set('age', age);
+      profile.save();
       this.set('age', null);
       this.set('model', null);
       this.set('adding', false);

@@ -13,62 +13,62 @@ export default Controller.extend({
   // actions
   actions: {
     removeAge() {
-      let detail = this.get('model');
-      detail.set('age', null);
-      detail.save();
+      let profile = this.get('model');
+      profile.set('age', null);
+      profile.save();
     },
 
     removeGender() {
-      let detail = this.get('model');
-      detail.set('gender', null);
-      detail.save();
+      let profile = this.get('model');
+      profile.set('gender', null);
+      profile.save();
     },
 
     removeEducation(education) {
-      let detail = this.get('model');
-      let educations = detail.get('educations');
+      let profile = this.get('model');
+      let educations = profile.get('educations');
       educations.removeObject(education);
-      detail.save();
+      profile.save();
       this.get('notify').success(`Successfully removed ${education.get('degree').get('levelString')} degree.`);
     },
 
     removeLanguage(language) {
-      let detail = this.get('model');
-      let languages = detail.get('languages');
+      let profile = this.get('model');
+      let languages = profile.get('languages');
       languages.removeObject(language);
-      detail.save();
+      profile.save();
       this.get('notify').success(`Successfully removed ${language.get('tongue').get('name')} language.`);
     },
 
     removeExperience(experience) {
-      let detail = this.get('model');
-      let experiences = detail.get('experiences');
+      let profile = this.get('model');
+      let experiences = profile.get('experiences');
       experiences.removeObject(experience);
-      detail.save();
+      profile.save();
       this.get('notify').success(`Successfully removed ${experience.get('industry').get('name')} experience.`);
     },
 
     removeSpecialization(specialization) {
-      let detail = this.get('model');
-      let specializations = detail.get('specializations');
+      let profile = this.get('model');
+      let specializations = profile.get('specializations');
       specializations.removeObject(specialization);
-      detail.save();
+      profile.save();
       this.get('notify').success(`Successfully removed ${specialization.get('name')} specialization.`);
     },
 
     removeInterest(interest) {
-      let detail = this.get('model');
-      let interests = detail.get('interests');
+      let profile = this.get('model');
+      let interests = profile.get('interests');
       interests.removeObject(interest);
-      detail.save();
+      profile.save();
       this.get('notify').success(`Successfully removed ${interest.get('name')} interest.`);
     },
 
     removeCountry(country) {
-      let detail = this.get('model');
-      let countries = detail.get('countries');
+      let profile = this.get('model');
+      let countries = profile.get('countries');
       countries.removeObject(country);
-      detail.save();
+      profile.save();
       this.get('notify').success(`Successfully removed ${country.get('demonym')} citizenship.`);
     }
   }

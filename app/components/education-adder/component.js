@@ -10,7 +10,7 @@ const {
 export default Component.extend(EmberValidations, {
 
   // attributes
-  detail: null,
+  profile: null,
   model: null,
   adding: false,
 
@@ -70,9 +70,9 @@ export default Component.extend(EmberValidations, {
       let school = this.get('school');
       let education = this.get('model');
       await Ember.RSVP.all([field.get('content').save(), school.get('content').save(), education.save()]);
-      let detail = this.get('detail');
-      detail.get('educations').pushObject(education);
-      detail.save();
+      let profile = this.get('profile');
+      profile.get('educations').pushObject(education);
+      profile.save();
       this.set('model', null);
       this.set('adding', false);
     }

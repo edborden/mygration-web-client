@@ -4,7 +4,7 @@
     {{#if model.age}}
       {{model.age.years}} <i class="fa-times red click-fix" {{action 'removeAge'}}></i>
     {{else}}
-      {{age-adder detail=model}}
+      {{age-adder profile=model}}
     {{/if}}
   </li>
 </ul>
@@ -14,7 +14,7 @@
     {{#if model.gender}}
       {{model.gender.genderString}} <i class="fa-times red click-fix" {{action 'removeGender'}}></i>
     {{else}}
-      {{gender-adder detail=model}}
+      {{gender-adder profile=model}}
     {{/if}}
   </li>
 </ul>
@@ -24,7 +24,7 @@
     {{#each model.countries as |country|}}
       <p>{{country.demonym}} <i class="fa-times red click-fix" {{action 'removeCountry' country}}></i></p>
     {{/each}}
-    {{country-adder detail=model}}
+    {{country-adder profile=model}}
   </li>
 </ul>
 <ul class="list-group">
@@ -35,7 +35,7 @@
         {{language.tongue.name}} - {{language.proficiencyString}} <i class="fa-times red click-fix" {{action 'removeLanguage' language}}></i>
       </p>
     {{/each}}
-    {{language-adder detail=model}}
+    {{language-adder profile=model}}
   </li>
 </ul>
 <ul class="list-group">
@@ -46,7 +46,7 @@
         {{education.degree.levelString}}: {{education.field.name}} ({{education.school.name}}) <i class="fa-times red click-fix" {{action 'removeEducation' education}}></i>
       </p>
     {{/each}}
-    {{education-adder detail=model}}
+    {{education-adder profile=model}}
   </li>
 </ul>
 <ul class="list-group">
@@ -57,7 +57,7 @@
         {{experience.role}} ({{experience.industry.name}}: {{experience.lengthString}}) <i class="fa-times red click-fix" {{action 'removeExperience' experience}}></i>
       </p>
     {{/each}}
-    {{experience-adder detail=model}}
+    {{experience-adder profile=model}}
   </li>
 </ul>
 <ul class="list-group">
@@ -69,7 +69,7 @@
       </p>
     {{/each}}
     {{#unless model.maxSpecializations}}
-      {{attribute-adder detail=model attributeName="specialization"}}
+      {{attribute-adder profile=model attributeName="specialization"}}
     {{/unless}}
   </li>
 </ul>
@@ -80,7 +80,7 @@
       <p>{{interest.name}} <i class="fa-times red click-fix" {{action 'removeInterest' interest}}></i></p>
     {{/each}}
     {{#unless model.maxInterests}}
-      {{attribute-adder detail=model attributeName="interest"}}
+      {{attribute-adder profile=model attributeName="interest"}}
     {{/unless}}
   </li>
 </ul>

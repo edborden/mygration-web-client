@@ -17,7 +17,7 @@ export default Model.extend({
 
   // associations
   facebook: belongsTo('facebook'),
-  detail: belongsTo('detail'),
+  profile: belongsTo('profile'),
   listings: hasMany('listing'),
   gender: belongsTo('gender')
 

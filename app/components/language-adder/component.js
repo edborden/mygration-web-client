@@ -10,7 +10,7 @@ const {
 export default Component.extend(EmberValidations, {
 
   // attributes
-  detail: null,
+  profile: null,
   model: null,
   adding: false,
 
@@ -47,9 +47,9 @@ export default Component.extend(EmberValidations, {
     async save() {
       let language = this.get('model');
       await language.save();
-      let detail = this.get('detail');
-      detail.get('languages').pushObject(language);
-      detail.save();
+      let profile = this.get('profile');
+      profile.get('languages').pushObject(language);
+      profile.save();
       this.set('model', null);
       this.set('adding', false);
     }
