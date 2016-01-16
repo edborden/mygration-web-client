@@ -31,13 +31,13 @@ export default Component.extend(HasMe, {
       let model = this.get('model');
       me.get('listings').removeObject(model);
       me.save();
-      console.log(me.get('listings').get('length'));
       if (!me.get('listings').get('length')) {
         let profile = me.get('profile');
         await profile;
         profile.set('hasListings', false);
         profile.get('content').save();
       }
+      model.destroyRecord();
       this.get('notify').success(`Successfully removed listing.`);
     }
   }
