@@ -8,8 +8,10 @@
 <ul class="list-group">
   <li class="list-group-item">
     <div class="row">
-      {{#each model as |listing|}}
-        {{listing-card model=listing owner=false}}
+      {{#each model as |profile|}}
+        {{#each profile.user.listings as |listing|}}
+          {{listing-card model=listing owner=false}}
+        {{/each}}
       {{else}}
         <h4>No listings!</h4>
       {{/each}}
