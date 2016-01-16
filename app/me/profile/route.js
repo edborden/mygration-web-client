@@ -12,7 +12,9 @@ export default Route.extend(HasMe, {
     let me = this.get('me');
     let noProfile = isEmpty(me.get('profile').get('content'));
     if (noProfile) {
-      return this.get('store').createRecord('profile');
+      let profile = this.get('store').createRecord('profile');
+      profile.set('user', me);
+      return profile;
     } else {
       return me.get('profile');
     }
