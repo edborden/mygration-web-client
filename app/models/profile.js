@@ -4,11 +4,15 @@ import { equal } from 'ember-computed-decorators';
 
 const {
   Model,
+  attr,
   belongsTo,
   hasMany
 } = DS;
 
 export default Model.extend(HasMe, {
+
+  // attributes
+  hasListings: attr('boolean', {defaultValue: false}),
 
   // associations
   age: belongsTo('age'),
