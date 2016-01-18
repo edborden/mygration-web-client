@@ -23,6 +23,7 @@ export default Model.extend(HasMe, {
   interests: hasMany('interest'),
   educations: hasMany('education'),
   user: belongsTo('user'),
+  locationCountry: belongsTo('country'),
 
   // computed
   @equal('specializations.length', 2) maxSpecializations,
