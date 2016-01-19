@@ -12,7 +12,7 @@ const {
 export default Model.extend(HasMe, {
 
   // attributes
-  hasListings: attr('boolean', {defaultValue: false}),
+  hasListings: attr('boolean', { defaultValue: false }),
 
   // associations
   age: belongsTo('age'),
