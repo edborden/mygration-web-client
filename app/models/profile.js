@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 import HasMe from 'mygration-web-client/mixins/has-me';
-import { equal } from 'ember-computed-decorators';
+import { equal, alias } from 'ember-computed-decorators';
 
 const {
   Model,
@@ -28,6 +28,7 @@ export default Model.extend(HasMe, {
   // computed
   @equal('specializations.length', 2) maxSpecializations,
   @equal('interests.length', 2) maxInterests,
+  @alias('locationCountry.name.common') locationCommonName,
 
   // events
   /*
