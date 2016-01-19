@@ -40,6 +40,7 @@ export default Component.extend(HasMe, EmberValidations, {
       await model.save();
       if (isNew) {
         this.addToUser(model);
+        this.setHasListings();
       }
       this.get('routing').transitionTo('me.listings');
       this.get('notify').success(`Successfully saved listing.`);
@@ -52,6 +53,13 @@ export default Component.extend(HasMe, EmberValidations, {
     let listings = me.get('listings');
     listings.pushObject(model);
     me.save();
+  },
+
+  async setHasListings() {
+    let profile = this.get('me').get('profile');
+    await profile;
+    profile.set('hasListings', true);
+    profile.get('content').save();
   }
 
 });

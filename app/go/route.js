@@ -9,7 +9,10 @@ const {
 export default Route.extend(HasMe, {
 
   model() {
-    return this.get('store').findAll('listing');
+    return this.get('store').query('profile', {
+      orderBy: 'hasListings',
+      equalTo: true
+    });
   }
 
 });

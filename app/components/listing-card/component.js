@@ -26,11 +26,18 @@ export default Component.extend(HasMe, {
       routing.transitionTo('me.listings.edit', [model]);
     },
 
-    removeListing() {
+    async removeListing() {
       let me = this.get('me');
       let model = this.get('model');
       me.get('listings').removeObject(model);
-      this.get('me').save();
+      me.save();
+      if (!me.get('listings').get('length')) {
+        let profile = me.get('profile');
+        await profile;
+        profile.set('hasListings', false);
+        profile.get('content').save();
+      }
+      model.destroyRecord();
       this.get('notify').success(`Successfully removed listing.`);
     }
   }

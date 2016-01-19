@@ -1,14 +1,18 @@
 import DS from 'ember-data';
 import HasMe from 'mygration-web-client/mixins/has-me';
-import { equal } from 'ember-computed-decorators';
+import { equal, alias } from 'ember-computed-decorators';
 
 const {
   Model,
+  attr,
   belongsTo,
   hasMany
 } = DS;
 
 export default Model.extend(HasMe, {
+
+  // attributes
+  hasListings: attr('boolean', { defaultValue: false }),
 
   // associations
   age: belongsTo('age'),
@@ -18,10 +22,13 @@ export default Model.extend(HasMe, {
   specializations: hasMany('specialization'),
   interests: hasMany('interest'),
   educations: hasMany('education'),
+  user: belongsTo('user'),
+  locationCountry: belongsTo('country'),
 
   // computed
   @equal('specializations.length', 2) maxSpecializations,
   @equal('interests.length', 2) maxInterests,
+  @alias('locationCountry.name.common') locationCommonName,
 
   // events
   /*

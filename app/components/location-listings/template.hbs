@@ -1,0 +1,5 @@
+{{#each filtered as |profile|}}
+  {{#each profile.user.listings as |listing|}}
+    {{listing-card model=listing owner=false}}
+  {{/each}}
+{{/each}}

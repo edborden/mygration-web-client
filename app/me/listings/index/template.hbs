@@ -7,8 +7,15 @@
       {{#each model as |listing|}}
         {{listing-card model=listing}}
       {{else}}
-        <h4>You don't have any listings yet!</h4>
-        Add Listing
+        <div class="col-md-12">
+          <h4>You don't have any listings yet!</h4>
+          {{#link-to 'me.listings.add'}}
+            <button class="btn btn-primary">
+              Add Listing
+              <i class='fa-plus fa-lg'></i>
+            </button>
+          {{/link-to}}
+        </div>
       {{/each}}
     </div>
   </li>

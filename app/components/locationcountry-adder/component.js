@@ -12,7 +12,6 @@ export default Component.extend(EmberValidations, {
   // attributes
   profile: null,
   model: null,
-  adding: false,
 
   // services
   store: service(),
@@ -20,7 +19,7 @@ export default Component.extend(EmberValidations, {
   // computed
   @computed
   countries() {
-    return this.get('store').peekAll('country');
+    return this.get('store').findAll('country');
   },
 
   // validations
@@ -32,17 +31,12 @@ export default Component.extend(EmberValidations, {
 
   // actions
   actions: {
-    add() {
-      this.set('adding', true);
-    },
 
     async save() {
       let country = this.get('model');
       let profile = this.get('profile');
-      profile.get('countries').pushObject(country);
-      profile.save();
-      this.set('model', null);
-      this.set('adding', false);
+      profile.set('locationCountry', country);
+      profile.get('content').save();
     }
   }
 
