@@ -10,6 +10,9 @@ export default Ember.Route.extend({
   meService: service('me'),
 
   // events
+  beforeModel() {
+    return this.get('store').findAll('country');
+  },
   afterModel() {
     if (this.get('session').get('isAuthenticated')) {
       return this._setupMeService();

@@ -20,7 +20,7 @@ export default Component.extend(EmberValidations, {
   // computed
   @computed
   countries() {
-    return this.get('store').findAll('country');
+    return this.get('store').peekAll('country');
   },
 
   // validations
