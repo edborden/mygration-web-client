@@ -2,10 +2,12 @@
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col m12">
           <h4>{{name}}</h4>
         </div>
-        {{location-listings countryName=name allProfiles=model}}
+        <div class="col m4">
+          {{location-listings countryName=name allProfiles=model}}
+        </div>
       </div>
     </li>
   </ul>

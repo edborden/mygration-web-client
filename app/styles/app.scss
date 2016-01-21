@@ -1,0 +1,15 @@
+@import "brand";
+@import "colors";
+@import "../../bower_components/materialize/sass/materialize";
+@import "../../bower_components/components-font-awesome/scss/font-awesome";
+
+.logo { height: 40px }
+
+nav {
+  i.fa {
+    display: block;
+    height: $navbar-height-mobile;
+    line-height: $navbar-height-mobile;
+  }
+}
+

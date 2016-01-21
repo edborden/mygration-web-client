@@ -10,7 +10,8 @@
     "jquery": "2.1.4",
     "loader.js": "^3.5.0",
     "qunit": "~1.20.0",
-    "sinonjs": "~1.17.1"
+    "sinonjs": "~1.17.1",
+    "Materialize": "materialize#~0.97.5"
   },
   "devDependencies": {
     "bootstrap": "~3.3.6",
