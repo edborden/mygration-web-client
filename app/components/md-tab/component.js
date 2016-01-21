@@ -1,33 +1,28 @@
 import Ember from 'ember';
 import ChildComponentSupport from 'ember-composability/mixins/child-component-support';
 import MdTabs from 'mygration-web-client/components/md-tabs/component';
-import { equal } from 'ember-computed-decorators';
+import computed from 'ember-computed-decorators';
+import { equal, oneWay } from 'ember-computed-decorators';
 
-const { Component, computed, computed: { oneWay } } = Ember;
+const { Component } = Ember;
 
 export default Component.extend(ChildComponentSupport, {
   _parentComponentTypes: [MdTabs],
   tagName: 'li',
 
-  classNames: ['materialize-tabs-tab', 'tab', 'col'],
-  classNameBindings: ['_colClass'],
+  classNames: ['materialize-tabs-tab', 'tab', 'col', 's2'],
 
-  colWidth: oneWay('composableParent.colWidth'),
-
-  _colClass: computed('colWidth', function() {
-    return `s${this.get('colWidth')}`;
-  }),
-
-  @equal('composableParent.selected', this) active,
+  @oneWay('composableParent.colWidth') colWidth,
 
   click() {
-    let parent = this.get('composableParent');
     let action = this.get('action');
     if (action) {
-      parent.sendAction(action);
+      let parent = this.get('composableParent');
+      let parentAction = `_action_${action}`;
+      parent.set(parentAction, action);
+      parent.sendAction(parentAction);
     } else {
-      parent.set('selected', this);
-      parent._indicatorUpdater();
+      this.$().tabs('select_tab', this.elementId);
     }
   }
 
