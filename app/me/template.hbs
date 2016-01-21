@@ -1,14 +1,13 @@
-<div class="row">  
-  <div class="col-md-2">
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-info">Me</li>
-      {{#link-to "me.profile" class="list-group-item"}}Profile{{/link-to}}
-      {{#link-to "me.listings.index" class="list-group-item"}}Listings{{/link-to}}
-      <a href="" class="list-group-item" {{action 'signOut'}}>Logout</a>
-    </ul>
-  </div>
+{{#md-tabs}}
+  {{#md-tab link='me.profile'}}
+    Profile
+  {{/md-tab}}
+  {{#md-tab link='me.listings.index'}}
+    Listings
+  {{/md-tab}}
+  {{#md-tab action='logout'}}
+    Logout
+  {{/md-tab}}
+{{/md-tabs}}
 
-  <div class="col-md-10">
-    {{outlet}}
-  </div>
-</div>
+{{outlet}}

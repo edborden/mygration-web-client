@@ -44,5 +44,7 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/materialize/dist/font/roboto/Roboto-Bold.woff', { destDir: 'font/roboto' });
   app.import(app.bowerDirectory + '/materialize/dist/font/roboto/Roboto-Bold.ttf', { destDir: 'font/roboto' });
 
+  app.import(app.bowerDirectory + '/materialize/dist/js/materialize.js');  
+
   return mergeTrees([app.toTree(),fontAwesomeFonts]);
 };
