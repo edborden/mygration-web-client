@@ -40,9 +40,13 @@
   </nav>
 {{/unless}}
 
-<div class='container'>
+{{#unless noContainer}}
+  <div class='container'>
+    {{outlet}}
+  </div>
+{{else}}
   {{outlet}}
-</div>
+{{/unless}}
 
 {{#unless noFooter}}
   <div class='footer'>
