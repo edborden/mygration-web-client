@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
-const { 
-  Component, 
+const {
+  Component
 } = Ember;
 
 export default Component.extend({
-  
+
   // attributes
   tagName: 'ul',
 

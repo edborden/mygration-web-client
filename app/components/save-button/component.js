@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
-const { 
-  Component, 
+const {
+  Component
 } = Ember;
 
 export default Component.extend({
-  
+
   // attributes
   classNames: ['col', 's1'],
   action: 'save',
@@ -13,7 +13,7 @@ export default Component.extend({
   // actions
   actions: {
     clicked() {
-      this.sendAction()
+      this.sendAction();
     }
   }
 
