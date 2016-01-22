@@ -1,15 +1,13 @@
 <div class="col m4">
-  <div class="thumbnail">
-    <div class="caption">
-      <h4>
-        {{model.title}}
-        {{#if owner}}
-          <small>
-            <i class="fa-edit click-fix" {{action 'editListing'}}></i>
-            <i class="fa-times red click-fix" {{action 'removeListing'}}></i>
-          </small>
-        {{/if}}
-      </h4>
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">{{model.title}}</span>
+      {{#if owner}}
+        <small>
+          <i class="material-icons click-fix" {{action 'editListing'}}>edit</i>
+          <i class="material-icons red-text click-fix" {{action 'removeListing'}}>clear</i>
+        </small>
+      {{/if}}
       <p>{{model.description}}</p>
       <p>Price: {{model.price}}</p>
     </div>
