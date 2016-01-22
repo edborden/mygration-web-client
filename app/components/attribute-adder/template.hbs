@@ -1,11 +1,9 @@
 {{#if adding}}
   <div class="row">
-    <div class="col-md-11">
-      {{input value=name classNames="form-control" type=attributeType placeholder=placeHolder}}
-    </div>
-    <div class="col-md-1">
-      <button class="btn btn-primary" disabled={{unless isValid true}} {{action 'save'}}>
-        <i class="fa-check"></i>
+    {{md-input class="s11" value=name type=attributeType placeholder=placeHolder}}
+    <div class="col s1">
+      <button class="btn" disabled={{unless isValid true}} {{action 'save'}}>
+        <i class="material-icons">check</i>
       </button>
     </div>
   </div>
