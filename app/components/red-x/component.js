@@ -8,7 +8,7 @@ export default Component.extend({
   
   // attributes
   tagName: 'i',
-  classNames: ['material-icons', 'red-text', 'click-fix'],
+  classNames: ['material-icons', 'red-text', 'click-fix', 'left'],
   action: 'remove',
 
   // actions
