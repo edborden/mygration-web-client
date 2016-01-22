@@ -1,7 +1,7 @@
 {{#if adding}}
   <div class="row">
-    <div class="col-md-3">
-      {{#x-select value=degree classNames="form-control"}}
+    <div class="col m4 input-field">
+      {{#x-select value=degree classNames="browser-default"}}
         <option>Select degree</option>
         {{#each degrees as |degree|}}
           {{#x-option value=degree}}
@@ -10,21 +10,13 @@
         {{/each}}
       {{/x-select}}
     </div>
-    <div class="col-md-2">
-      {{input class="form-control" type="text" value=field.name size=15 placeholder="Field"}}
-    </div>
-    <div class="col-md-3">
-      {{input class="form-control" type="text" value=school.name size=15 placeholder="School"}}
-    </div>
-    <div class="col-md-1">
-      <button class="btn btn-primary" disabled={{unless isValid true}} {{action 'save'}}>
-        <i class="fa-check"></i>
-      </button>
-    </div>
+    {{md-input class="m4" value=field.name placeholder="Field"}}
+    {{md-input class="m3" value=school.name placeholder="School"}}
+    {{save-button isValid=isValid}}
   </div>
 {{else}}
-  <button class="btn btn-primary" {{action 'add'}}>
+  <button class="btn" {{action 'add'}}>
     Add Degree
-    <i class="fa-plus"></i>
+    <i class="material-icons right">add</i>
   </button>
 {{/if}}

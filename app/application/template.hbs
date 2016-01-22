@@ -1,29 +1,28 @@
 {{#unless noNav}}
-  <nav class='navbar navbar-default'>
+  <nav>
 
-    <div class='container-fluid'>
+    <div class='nav-wrapper container'>
 
-      <div class='navbar-header'>
-        {{#link-to 'index' classNames='navbar-brand'}}
-          <img src='assets/images/brand-white.png'>
-        {{/link-to}}
-      </div>
+      {{#link-to 'index' classNames='brand-logo'}}
+        mYgration
+      {{/link-to}}
 
-      <ul class='nav navbar-nav navbar-right'>
+      <ul class="right">
       
         {{#if session.isAuthenticated}}
           <li>
             {{#link-to 'go'}}
-              <i class='fa-lg fa-search'></i>
+              <i class='material-icons'>search</i>
             {{/link-to}}
-          </li>          <li>
+          </li>          
+          <li>
             {{#link-to 'me.listings.add'}}
-              <i class='fa-plus fa-lg'></i>
+              <i class='material-icons'>add</i>
             {{/link-to}}
           </li>
           <li>
             {{#link-to 'me'}}
-              <i class='fa-user fa-lg'></i>
+              <i class='material-icons left'>person</i>
               {{me.firstName}}
             {{/link-to}}
           </li>
@@ -41,9 +40,13 @@
   </nav>
 {{/unless}}
 
-<div class='container-fluid main-body'>
+{{#unless noContainer}}
+  <div class='container'>
+    {{outlet}}
+  </div>
+{{else}}
   {{outlet}}
-</div>
+{{/unless}}
 
 {{#unless noFooter}}
   <div class='footer'>

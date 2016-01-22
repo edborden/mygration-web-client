@@ -1,7 +1,7 @@
 {{#if adding}}
   <div class="row">
-    <div class="col-md-4">
-      {{#x-select value=industry classNames="form-control"}}
+    <div class="col m4 input-field">
+      {{#x-select value=industry classNames="browser-default"}}
         <option>Select industry</option>
         {{#each industries as |industry|}}
           {{#x-option value=industry}}
@@ -10,11 +10,9 @@
         {{/each}}
       {{/x-select}}
     </div>
-    <div class="col-md-3">
-      {{input class="form-control" type="text" value=role size=15}}
-    </div>
-    <div class="col-md-4">
-      {{#x-select value=length classNames="form-control"}}
+    {{md-input class="m3" value=role}}
+    <div class="col m4 input-field">
+      {{#x-select value=length classNames="browser-default"}}
         <option>Select proficiency</option>
         {{#each-in model.lengthEnum as |value label|}}
           {{#x-option value=value}}
@@ -23,11 +21,7 @@
         {{/each-in}}
       {{/x-select}}      
     </div>
-    <div class="col-md-1">
-      <button class="btn btn-primary" disabled={{unless isValid true}} {{action 'save'}}>
-        <i class="fa-check"></i>
-      </button>
-    </div>
+    {{save-button isValid=isValid}}
   </div>
 {{else}}
   <button class="btn btn-primary" {{action 'add'}}>

@@ -1,22 +1,15 @@
-<ul class="list-group">
-  <li class="list-group-item list-group-item-info">
-    My Listings
-  </li>
-  <li class="list-group-item">
-    <div class="row">
-      {{#each model as |listing|}}
-        {{listing-card model=listing}}
-      {{else}}
-        <div class="col-md-12">
-          <h4>You don't have any listings yet!</h4>
-          {{#link-to 'me.listings.add'}}
-            <button class="btn btn-primary">
-              Add Listing
-              <i class='fa-plus fa-lg'></i>
-            </button>
-          {{/link-to}}
-        </div>
-      {{/each}}
+<div class="row">
+  {{#each model as |listing|}}
+    {{listing-card model=listing}}
+  {{else}}
+    <div class="col m12">
+      <blockquote>You don't have any listings yet!</blockquote>
+      {{#link-to 'me.listings.add'}}
+        <button class="btn">
+          Add Listing
+          <i class="material-icons right">add</i>
+        </button>
+      {{/link-to}}
     </div>
-  </li>
-</ul>
+  {{/each}}
+</div>

@@ -15,7 +15,9 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' wss://*.firebaseio.com https://worker-aws-us-east-1.iron.io",
       'frame-src': "'self' https://*.firebaseio.com",
-      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com"
+      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com",
+      'font-src':"'self' https://fonts.gstatic.com",
+      'style-src':"'self' https://fonts.googleapis.com"
     }
   };
 
