@@ -1,7 +1,7 @@
 {{#if adding}}
   <div class="row">
-    <div class="col-md-11">
-      {{#x-select value=model classNames="form-control"}}
+    <div class="col m11 input-field">
+      {{#x-select value=model classNames="browser-default"}}
         <option>Select gender</option>
         {{#each genders as |gender|}}
           {{#x-option value=gender}}
@@ -13,7 +13,7 @@
     {{save-button isValid=isValid}}
   </div>
 {{else}}
-  <button class="btn btn-primary" {{action 'add'}}>
+  <button class="btn" {{action 'add'}}>
     Select Gender
   </button>
 {{/if}}
