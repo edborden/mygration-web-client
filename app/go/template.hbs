@@ -1,10 +1,13 @@
-{{#each uniqueLocationCommonNames as |name|}}
-  <div class="row">
-    <div class="col m12">
-      <h4>{{name}}</h4>
-    </div>
-    {{location-listings countryName=name allProfiles=model}}
-  </div>
+{{#if uniqueLocationCommonNames}}
+  {{#md-collapsible}}
+    {{#each uniqueLocationCommonNames as |name|}}
+      {{#collapsible-item title=name}}
+        <div class="row">
+          {{location-listings countryName=name allProfiles=model}}
+        </div>
+      {{/collapsible-item}}
+    {{/each}}
+  {{/md-collapsible}}
 {{else}}
   <h4>No listings!</h4>
-{{/each}}
+{{/if}}
