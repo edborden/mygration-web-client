@@ -1,11 +1,7 @@
 {{#if adding}}
   <div class="row">
     {{md-input value=model class="s11" type="number"}}
-    <div class="col s1">
-      <button class="btn" disabled={{unless isValid true}} {{action 'save'}}>
-        <i class="material-icons">check</i>
-      </button>
-    </div>
+    {{save-button isValid=isValid}}
   </div>
 {{else}}
   <button class="btn" {{action 'add'}}>
