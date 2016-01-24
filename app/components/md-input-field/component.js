@@ -38,7 +38,7 @@ export default Component.extend({
     }
   },
 
-  //helpers
+  // helpers
   _setupLabel() {
     const $label = this.$('> label');
     if (isPresent(this.get('value')) && !$label.hasClass('active')) {
