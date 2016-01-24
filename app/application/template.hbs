@@ -1,43 +1,15 @@
 {{#unless noNav}}
-  <nav>
-
-    <div class='nav-wrapper container'>
-
-      {{#link-to 'index' classNames='brand-logo'}}
-        mYgration
-      {{/link-to}}
-
-      <ul class="right">
-      
-        {{#if session.isAuthenticated}}
-          <li>
-            {{#link-to 'go'}}
-              <i class='material-icons'>search</i>
-            {{/link-to}}
-          </li>          
-          <li>
-            {{#link-to 'me.listings.add'}}
-              <i class='material-icons'>add</i>
-            {{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'me'}}
-              <i class='material-icons left'>person</i>
-              {{me.firstName}}
-            {{/link-to}}
-          </li>
-        {{else}}
-          <li>
-            {{#link-to 'login'}}
-              <i class='fa-sign-in fa-lg'></i>
-            {{/link-to}}
-          </li>
-        {{/if}}
-
-      </ul>
-
-    </div>
-  </nav>
+  {{#nav-bar brand="mYgration"}}
+    {{#if session.isAuthenticated}}
+      {{nav-link link='go' icon='search'}}         
+      {{nav-link link='me.listings.add' icon='add'}}
+      {{#nav-link link='me' icon='person' pull='left'}}
+          {{me.firstName}}
+      {{/nav-link}}
+    {{else}}
+      {{nav-link link='login' icon='launch'}}
+    {{/if}}
+  {{/nav-bar}}
 {{/unless}}
 
 {{#unless noContainer}}
