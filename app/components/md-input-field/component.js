@@ -1,9 +1,9 @@
 import Ember from 'ember';
 import computed from 'ember-computed-decorators';
 
-const { 
-  Component, 
-  isPresent 
+const {
+  Component,
+  isPresent
 } = Ember;
 
 export default Component.extend({
