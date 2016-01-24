@@ -1,21 +1,35 @@
 import Ember from 'ember';
+import computed from 'ember-computed-decorators';
 
-const { Component, computed, isPresent } = Ember;
+const {
+  Component,
+  isPresent
+} = Ember;
 
 export default Component.extend({
-  classNames: ['input-field col'],
 
+  // attributes
+  classNames: ['input-field col'],
   bindAttributes: ['disabled', 'readonly', 'autofocus'],
   validate: false,
 
-  isValid: computed('validate', 'errors', function() {
+  // computed
+  @computed('validate', 'errors')
+  isValid() {
     return (!this.get('validate') && !isPresent(this.get('errors.firstObject')));
-  }),
+  },
 
-  isInvalid: computed('validate', 'errors', function() {
+  @computed('validate', 'errors')
+  isInvalid() {
     return (!this.get('validate') && isPresent(this.get('errors.firstObject')));
-  }),
+  },
 
+  @computed('elementId')
+  id() {
+    return `${this.get('elementId')}-input`;
+  },
+
+  // events
   didInsertElement() {
     this._super(...arguments);
     // pad the errors element when an icon is present
@@ -24,10 +38,7 @@ export default Component.extend({
     }
   },
 
-  id: computed('elementId', function() {
-    return `${this.get('elementId')}-input`;
-  }),
-
+  // helpers
   _setupLabel() {
     const $label = this.$('> label');
     if (isPresent(this.get('value')) && !$label.hasClass('active')) {

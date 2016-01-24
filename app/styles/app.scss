@@ -1,10 +1,13 @@
 @import "brand";
 @import "colors";
 @import "../../bower_components/Materialize/sass/materialize";
-@import "../../bower_components/components-font-awesome/scss/font-awesome";
 
 .logo { height: 40px }
 .click-fix { cursor: pointer }
+
+nav {
+  margin-bottom:6px
+}
 
 .protest { 
   background: url(../assets/images/protest.jpg) no-repeat center center fixed; 

@@ -16,12 +16,12 @@ export default Controller.extend(HasMe, {
 
   @computed('currentRouteName')
   noContainer() {
-    return ['index'].contains(this.get('currentRouteName'));
+    return ['index', 'login'].contains(this.get('currentRouteName'));
   },
 
   @computed('currentRouteName')
   noFooter() {
-    return ['index'].contains(this.get('currentRouteName'));
+    return ['index', 'login'].contains(this.get('currentRouteName'));
   },
 
   @computed
