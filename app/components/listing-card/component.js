@@ -18,28 +18,28 @@ export default Component.extend(HasMe, {
   notify: service(),
 
   // actions
-  actions: {
-    editListing() {
-      let routing = this.get('routing');
-      let model = this.get('model');
-      // error in routing service API, needs [] for params
-      routing.transitionTo('me.listings.edit', [model]);
-    },
-
-    async removeListing() {
-      let me = this.get('me');
-      let model = this.get('model');
-      me.get('listings').removeObject(model);
-      me.save();
-      if (!me.get('listings').get('length')) {
-        let profile = me.get('profile');
-        await profile;
-        profile.set('hasListings', false);
-        profile.get('content').save();
-      }
-      model.destroyRecord();
-      this.get('notify').success(`Successfully removed listing.`);
+  click() {
+    const owner = this.get('owner');
+    if (owner) {
+      this._editListing();
+    } else {
+      this._viewListing();
     }
+  },
+
+  // helpers
+  _editListing() {
+    let routing = this.get('routing');
+    let model = this.get('model');
+    // error in routing service API, needs [] for params
+    routing.transitionTo('me.listings.edit', [model]);
+  },
+
+  _viewListing() {
+    let routing = this.get('routing');
+    let model = this.get('model');
+    // error in routing service API, needs [] for params
+    routing.transitionTo('listing', [model]);
   }
 
 });

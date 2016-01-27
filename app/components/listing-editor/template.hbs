@@ -1,18 +1,14 @@
-<ul class="list-group">
-  <li class="list-group-item">
-    {{input class="form-control" type="text" placeholder="Title" value=title}}
-  </li>
-  <li class="list-group-item">
-    {{textarea class="form-control" placeholder="Description" value=description}}
-  </li>
-  <li class="list-group-item">
-    Cost:
-    {{input class="form-control" type="number" value=price}}
-  </li>
-  <li class="list-group-item">
-    <button class="btn btn-primary" disabled={{unless isValid true}} {{action "save"}}>
-      <i class="fa-save"></i>
-      Save
-    </button>
-  </li>
-</ul>
+{{md-input placeholder="Title" value=title}}
+{{textarea placeholder="Description" value=description}}
+Cost:
+{{md-input type="number" value=price}}
+<button class="btn" disabled={{unless isValid true}} {{action "save"}}>
+  <i class="material-icons left">save</i>
+  Save
+</button>
+{{#unless isNew}}
+  <button class="btn red" {{action "remove"}}>
+    <i class="material-icons left">clear</i>
+    Remove
+  </button>
+{{/unless}}

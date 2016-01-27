@@ -1,22 +1,17 @@
 {
   "name": "mygration-web-client",
   "dependencies": {
-    "ember": "2.2.0",
-    "ember-cli-shims": "0.0.6",
-    "ember-cli-test-loader": "0.2.1",
-    "ember-data": "2.2.1",
+    "ember": "2.3.0",
+    "ember-cli-shims": "0.1.0",
+    "ember-cli-test-loader": "0.2.2",
     "ember-load-initializers": "0.1.7",
     "ember-qunit-notifications": "0.1.0",
     "jquery": "2.1.4",
     "loader.js": "^3.5.0",
-    "qunit": "~1.20.0",
     "sinonjs": "~1.17.1",
     "Materialize": "materialize#~0.97.5"
   },
   "devDependencies": {
     "firebase": "^2.1.0"
-  },
-  "resolutions": {
-    "ember": "2.2.0"
   }
 }

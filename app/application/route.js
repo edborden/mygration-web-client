@@ -1,10 +1,11 @@
 import Ember from 'ember';
 const {
   isEmpty,
-  inject: { service }
+  inject: { service },
+  Route
 } = Ember;
 
-export default Ember.Route.extend({
+export default Route.extend({
 
   // services
   meService: service('me'),

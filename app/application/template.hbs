@@ -1,33 +1,31 @@
-{{#unless noNav}}
-  {{#nav-bar brand="mYgration"}}
-    {{#if session.isAuthenticated}}
-      {{nav-link link='go' icon='search'}}         
-      {{nav-link link='me.listings.add' icon='add'}}
-      {{#nav-link link='me' icon='person' pull='left'}}
-          {{me.firstName}}
-      {{/nav-link}}
-    {{else}}
-      {{nav-link link='login' icon='launch'}}
-    {{/if}}
-  {{/nav-bar}}
-{{/unless}}
+<header>
+  {{#unless noNav}}
+    {{#nav-bar brand="mYgration"}}
+      {{#if session.isAuthenticated}}
+        {{nav-link link='go' icon='search'}}         
+        {{nav-link link='me.listings.add' icon='add'}}
+        {{#nav-link link='me' icon='person' pull='left'}}
+          {{full-name me}}
+        {{/nav-link}}
+      {{else}}
+        {{nav-link link='login' icon='launch'}}
+      {{/if}}
+    {{/nav-bar}}
+  {{/unless}}
+</header>
 
-{{#unless noContainer}}
-  <div class='container'>
+<main>
+  {{#unless noContainer}}
+    <div class='container'>
+      {{outlet}}
+    </div>
+  {{else}}
     {{outlet}}
-  </div>
-{{else}}
-  {{outlet}}
-{{/unless}}
+  {{/unless}}
+</main>
 
 {{#unless noFooter}}
-  <div class='footer'>
-    <div class='container-fluid'>
-      <p class='text-center'>
-        © {{year}} mYgration
-      </p>
-    </div>
-  </div>
+  {{footer-bar}}
 {{/unless}}
 
 {{ember-notify messageStyle='bootstrap'}}

@@ -9,7 +9,6 @@ const {
 export default Model.extend({
 
   uid: attr('string'),
-  pic: attr('string'),
   token: attr('string'),
 
   // associations

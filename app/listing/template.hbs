@@ -1,0 +1,15 @@
+{{#with model.user as |user|}}
+  <div class="row">
+    <div class="col m4">
+      {{#md-card class="center-align"}}
+        {{profile-pic user=user}}
+        <h5>{{user.firstName}}, {{user.profile.age.years}}</h5>
+        <div class="divider"></div>
+        <p>Demographics go here</p>
+      {{/md-card}}
+    </div>
+    <div class="col m8">
+      <p>Listing info goes here</p>
+    </div>
+  </div>
+{{/with}}

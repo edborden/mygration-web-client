@@ -1,12 +1,19 @@
 @import "brand";
 @import "colors";
 @import "../../bower_components/Materialize/sass/materialize";
+@import "pod-styles";
 
 .logo { height: 40px }
 .click-fix { cursor: pointer }
 
-nav {
-  margin-bottom:6px
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  min-height: 100vh;
 }
 
 .protest { 

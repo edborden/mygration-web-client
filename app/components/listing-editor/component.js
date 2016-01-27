@@ -14,6 +14,9 @@ export default Component.extend(HasMe, EmberValidations, {
   routing: service('-routing'),
   notify: service(),
 
+  // attributes
+  isNew: false,
+
   // computed
   @alias('model.title') title,
   @alias('model.description') description,
@@ -44,6 +47,22 @@ export default Component.extend(HasMe, EmberValidations, {
       }
       this.get('routing').transitionTo('me.listings');
       this.get('notify').success(`Successfully saved listing.`);
+    },
+
+    async remove() {
+      let me = this.get('me');
+      let model = this.get('model');
+      me.get('listings').removeObject(model);
+      me.save();
+      if (!me.get('listings').get('length')) {
+        let profile = me.get('profile');
+        await profile;
+        profile.set('hasListings', false);
+        profile.get('content').save();
+      }
+      model.destroyRecord();
+      this.get('routing').transitionTo('me.listings');
+      this.get('notify').success(`Successfully removed listing.`);
     }
   },
 

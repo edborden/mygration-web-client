@@ -22,12 +22,6 @@ export default Controller.extend(HasMe, {
   @computed('currentRouteName')
   noFooter() {
     return ['index', 'login'].contains(this.get('currentRouteName'));
-  },
-
-  @computed
-  year() {
-    let date = new Date();
-    return date.getFullYear();
   }
 
 });
