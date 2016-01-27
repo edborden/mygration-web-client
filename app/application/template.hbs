@@ -5,7 +5,7 @@
         {{nav-link link='go' icon='search'}}         
         {{nav-link link='me.listings.add' icon='add'}}
         {{#nav-link link='me' icon='person' pull='left'}}
-            {{me.firstName}} {{me.lastName}}
+          {{full-name me}}
         {{/nav-link}}
       {{else}}
         {{nav-link link='login' icon='launch'}}
