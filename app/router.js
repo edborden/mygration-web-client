@@ -15,6 +15,7 @@ Router.map(function() {
     });
   });
   this.route('go');
+  this.route('listing', { path: 'listing/:listing_id' });
 });
 
 export default Router;

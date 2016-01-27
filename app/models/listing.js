@@ -2,7 +2,8 @@ import DS from 'ember-data';
 
 const {
   Model,
-  attr
+  attr,
+  belongsTo
 } = DS;
 
 export default Model.extend({
@@ -10,6 +11,9 @@ export default Model.extend({
   // attributes
   title: attr('string'),
   description: attr('string'),
-  price: attr('number')
+  price: attr('number'),
+
+  // associations
+  user: belongsTo('user')
 
 });
