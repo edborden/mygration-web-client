@@ -27,6 +27,6 @@ export default Component.extend({
     await uid;
     const size = this.get('size');
     this.set('src', `http://res.cloudinary.com/mygration/image/facebook/w_${size},h_${size},c_thumb,g_face,r_max/${uid}.png`.htmlSafe());
-  },
+  }
 
 });

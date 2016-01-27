@@ -7,6 +7,6 @@ export default helper(function([user]) {
 
   const firstName = user.get('firstName');
   const lastName = user.get('lastName');
-  return `${firstName} ${lastName}`
+  return `${firstName} ${lastName}`;
 
 });

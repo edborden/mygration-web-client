@@ -39,7 +39,7 @@ export default Component.extend(HasMe, {
     let routing = this.get('routing');
     let model = this.get('model');
     // error in routing service API, needs [] for params
-    routing.transitionTo('listing', [model]);    
+    routing.transitionTo('listing', [model]);
   }
 
 });
