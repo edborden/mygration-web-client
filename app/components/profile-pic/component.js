@@ -12,7 +12,8 @@ export default Component.extend({
   tagName: 'img',
   attributeBindings: ['src'],
   user: null,
-  src: "",
+  src: '',
+  size: 70,
 
   // computed
   @alias('user.facebook') facebook,
@@ -24,7 +25,8 @@ export default Component.extend({
     await this.get('facebook');
     const uid = this.get('uid');
     await uid;
-    this.set('src', `http://res.cloudinary.com/mygration/image/facebook/w_40,h_40,c_thumb,g_face,r_max,b_rgb:1a1769/${uid}.jpg`.htmlSafe());
+    const size = this.get('size');
+    this.set('src', `http://res.cloudinary.com/mygration/image/facebook/w_${size},h_${size},c_thumb,g_face,r_max/${uid}.png`.htmlSafe());
   },
 
 });
