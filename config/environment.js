@@ -17,7 +17,8 @@ module.exports = function(environment) {
       'frame-src': "'self' https://*.firebaseio.com",
       'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com",
       'font-src':"'self' https://fonts.gstatic.com",
-      'style-src':"'self' https://fonts.googleapis.com"
+      'style-src':"'self' https://fonts.googleapis.com",
+      'img-src':"'self' http://res.cloudinary.com"
     }
   };
 
