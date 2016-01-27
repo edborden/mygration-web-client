@@ -1,13 +1,6 @@
-<ul class="list-group">
-  <li class="list-group-item list-group-item-info">
-    Add a Listing
-  </li>
-  {{#if locationCountry}}
-    {{listing-editor model=model}}
-  {{else}}
-    <li class="list-group-item">
-      <p>Which country are you interested in helping people migrate to?</p>
-      {{locationcountry-adder profile=me.profile}}
-    </li>
-  {{/if}}
-</ul>
+{{#if locationCountry}}
+  {{listing-editor model=model isNew=true}}
+{{else}}
+  <p>Which country are you interested in helping people migrate to?</p>
+  {{locationcountry-adder profile=me.profile}}
+{{/if}}

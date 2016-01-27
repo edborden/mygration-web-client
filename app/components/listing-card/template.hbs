@@ -1,15 +1,9 @@
 <div class="col m4">
-  {{#md-card class="blue-grey darken-1"}}
-    <div class="card-content white-text">
-      <span class="card-title">{{model.title}}</span>
-      {{#if owner}}
-        <small>
-          <i class="material-icons click-fix" {{action 'editListing'}}>edit</i>
-          <i class="material-icons red-text click-fix" {{action 'removeListing'}}>clear</i>
-        </small>
-      {{/if}}
-      <p>{{model.description}}</p>
-      <p>Price: {{model.price}}</p>
+  {{#md-card class="blue-grey darken-1 click-fix"}}
+    <div class="card-content white-text click-fix">
+      <span class="card-title click-fix">{{model.title}}</span>
+      <p class="click-fix">{{model.description}}</p>
+      <p class="click-fix">Price: {{model.price}}</p>
     </div>
   {{/md-card}}
 </div>
