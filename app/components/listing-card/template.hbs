@@ -1,5 +1,5 @@
 <div class="col m4">
-  <div class="card blue-grey darken-1">
+  {{#md-card class="blue-grey darken-1"}}
     <div class="card-content white-text">
       <span class="card-title">{{model.title}}</span>
       {{#if owner}}
@@ -11,5 +11,5 @@
       <p>{{model.description}}</p>
       <p>Price: {{model.price}}</p>
     </div>
-  </div>
+  {{/md-card}}
 </div>
