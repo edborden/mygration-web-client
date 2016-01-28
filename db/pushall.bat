@@ -1,0 +1,1 @@
+FOR %%A IN (ages,degrees,educations,facebooks,fields,languages,listings,profiles,schools) DO push %%A %1
