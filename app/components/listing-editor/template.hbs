@@ -2,6 +2,13 @@
 {{textarea placeholder="Description" value=description}}
 Cost:
 {{md-input type="number" value=price}}
+{{#each model.images as |image|}}
+  {{image}}
+{{/each}}
+<button class="btn" {{action "file"}}>
+  <i class="material-icons left">photo</i>
+  Image
+</button>
 <button class="btn" disabled={{unless isValid true}} {{action "save"}}>
   <i class="material-icons left">save</i>
   Save
