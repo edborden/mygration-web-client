@@ -13,12 +13,12 @@ module.exports = function(environment) {
       sessionServiceName: 'session'
     },
     contentSecurityPolicy: {
-      'connect-src': "'self' wss://*.firebaseio.com https://worker-aws-us-east-1.iron.io",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.iron.io",
       'frame-src': "'self' https://*.firebaseio.com",
-      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com",
+      'script-src': "'self' 'unsafe-eval' https://*.firebaseio.com http://widget.cloudinary.com",
       'font-src':"'self' https://fonts.gstatic.com",
-      'style-src':"'self' https://fonts.googleapis.com",
-      'img-src':"'self' http://res.cloudinary.com"
+      'style-src':"'self' 'unsafe-inline' https://fonts.googleapis.com",
+      'img-src':"'self' https://res.cloudinary.com"
     }
   };
 
