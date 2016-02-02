@@ -12,7 +12,8 @@ module.exports = function(defaults) {
       useLintTree: false
     },
     inlineContent: {
-      favicon: { content: "<link rel='icon' href='/assets/images/favicon.ico'>" }
+      favicon: { content: "<link rel='icon' href='/assets/images/favicon.ico'>" },
+      cloudinary: {content: "<script src='//widget.cloudinary.com/global/all.js' type='text/javascript'></script>" }
     }
   });
 
@@ -23,7 +24,19 @@ module.exports = function(defaults) {
   var materializeFonts = pickFiles('bower_components/Materialize/font/roboto', {
     destDir: '/font/roboto'
   });
-  app.import('bower_components/Materialize/dist/js/materialize.js');  
+  app.import('bower_components/Materialize/dist/js/materialize.js');
 
-  return mergeTrees([ app.toTree(), materializeFonts ]);
+  // Photoswipe
+  var psDir = 'bower_components/photoswipe/dist/';
+  app.import(psDir + 'photoswipe.css');
+  app.import(psDir + 'default-skin/default-skin.css');
+  app.import(psDir + 'photoswipe.js');
+  app.import(psDir + 'photoswipe-ui-default.js');
+
+  var psAssets = pickFiles('bower_components/photoswipe/dist/default-skin', {
+    destDir: '/assets',
+    exclude: ['default-skin.css']
+  });
+
+  return mergeTrees([ app.toTree(), materializeFonts, psAssets ]);
 };

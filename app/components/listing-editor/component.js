@@ -13,8 +13,10 @@ export default Component.extend(HasMe, EmberValidations, {
   // services
   routing: service('-routing'),
   notify: service(),
+  store: service(),
 
   // attributes
+  model: null,
   isNew: false,
 
   // computed
@@ -63,6 +65,30 @@ export default Component.extend(HasMe, EmberValidations, {
       model.destroyRecord();
       this.get('routing').transitionTo('me.listings');
       this.get('notify').success(`Successfully removed listing.`);
+    },
+
+    file() {
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+      cloudinary.openUploadWidget({
+        upload_preset: 'qx7zq1cd',
+        cropping: 'server'
+      }, (error, result) => {
+        console.log(result);
+        // Listing has to be persisted before image
+        const listing = this.get('model');
+        // TODO CHECK THERE IS A RESULT
+        const image = this.get('store').createRecord('image', {
+          cloudinaryId: result[0].public_id,
+          width: result[0].width,
+          height: result[0].height,
+          listing
+        });
+        listing.get('images').pushObject(image);
+        image.save().then(() => {
+          listing.save();
+          console.log('image saved');
+        });
+      });
     }
   },
 
