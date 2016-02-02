@@ -2,9 +2,11 @@
 {{textarea placeholder="Description" value=description}}
 Cost:
 {{md-input type="number" value=price}}
-{{#each model.images as |image|}}
-  {{image}}
-{{/each}}
+{{#if model.images.isFulfilled}}
+  {{#photoswipe-gallery items=model.images as |img|}}
+    {{image-thumbnail model=img}}
+  {{/photoswipe-gallery}}
+{{/if}}
 <button class="btn" {{action "file"}}>
   <i class="material-icons left">photo</i>
   Image

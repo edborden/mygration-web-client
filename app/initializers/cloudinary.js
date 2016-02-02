@@ -1,9 +1,7 @@
 export default {
 
   initialize() {
-    if (cloudinary) {
-      cloudinary.setCloudName('mygration')
-    }
+    cloudinary.setCloudName('mygration');
   }
 
-}
+};

@@ -68,6 +68,7 @@ export default Component.extend(HasMe, EmberValidations, {
     },
 
     file() {
+      // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
       cloudinary.openUploadWidget({
         upload_preset: 'qx7zq1cd',
         cropping: 'server'
@@ -75,15 +76,16 @@ export default Component.extend(HasMe, EmberValidations, {
         console.log(result);
         // Listing has to be persisted before image
         const listing = this.get('model');
+        // TODO CHECK THERE IS A RESULT
         const image = this.get('store').createRecord('image', {
           cloudinaryId: result[0].public_id,
           width: result[0].width,
           height: result[0].height,
-          listing: listing
+          listing
         });
         listing.get('images').pushObject(image);
-        listing.save().then( () => {
-          image.save();
+        image.save().then(() => {
+          listing.save();
           console.log('image saved');
         });
       });

@@ -10,9 +10,7 @@
     "loader.js": "^3.5.0",
     "sinonjs": "~1.17.1",
     "Materialize": "materialize#~0.97.5",
-    "photoswipe": "~4.1.1"
-  },
-  "devDependencies": {
-    "firebase": "^2.1.0"
+    "firebase": "^2.1.0",
+    "photoswipe": "4.1.1"
   }
 }

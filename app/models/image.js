@@ -1,3 +1,4 @@
+import computed from 'ember-computed-decorators';
 import DS from 'ember-data';
 
 const {
@@ -14,6 +15,17 @@ export default Model.extend({
   cloudinaryId: attr('string'),
 
   // associations
-  listing: belongsTo('listing')
+  listing: belongsTo('listing'),
+
+  // computed
+  @computed
+  msrc() {
+    return `https://res.cloudinary.com/mygration/image/upload/w_90,h_70/${this.get('cloudinaryId')}.jpg`;
+  },
+
+  @computed
+  src() {
+    return `https://res.cloudinary.com/mygration/image/upload/${this.get('cloudinaryId')}.jpg`;
+  }
 
 });

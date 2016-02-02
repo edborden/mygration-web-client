@@ -31,7 +31,7 @@ module.exports = function(defaults) {
   app.import(psDir + 'photoswipe.css');
   app.import(psDir + 'default-skin/default-skin.css');
   app.import(psDir + 'photoswipe.js');
-  app.import(psDir + 'photoswipe-ui-default.min.js');
+  app.import(psDir + 'photoswipe-ui-default.js');
 
   var psAssets = pickFiles('bower_components/photoswipe/dist/default-skin', {
     destDir: '/assets',
